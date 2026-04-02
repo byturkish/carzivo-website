@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carzivo – كل خدمات سيارتك في مكان واحد. كرين، نقل بضائع، ورش صيانة، قطع غيار في العراق.">
+  <meta property="og:title" content="Carzivo – خدمات السيارات">
+  <meta property="og:description" content="اطلب كرين، نقل بضائع، أو ورشة صيانة بسهولة وسرعة داخل العراق">
+  <meta property="og:url" content="https://www.carzivo.com">
+  <title>Carzivo – كل خدمات سيارتك في مكان واحد</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #e07b2a;
+      --orange-dark: #c4661a;
+      --orange-light: #f5a05a;
+      --dark: #111827;
+      --dark2: #1f2937;
+      --gray: #6b7280;
+      --light: #f9fafb;
+      --white: #ffffff;
+      --radius: 1.25rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ──────────── NAV ──────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      height: 70px;
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(224,123,42,0.2);
+    }
+    .nav-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white) !important;
+      padding: .5rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--orange-dark) !important; color: var(--white) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ──────────── HERO ──────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #111827 0%, #1e3a5f 50%, #111827 100%);
+      display: flex;
+      align-items: center;
+      padding: 100px 6% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(224,123,42,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(224,123,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      max-width: 650px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(224,123,42,0.15);
+      border: 1px solid rgba(224,123,42,0.35);
+      color: var(--orange-light);
+      padding: .45rem 1.2rem;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.3); }
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+    }
+    .hero-title .highlight { color: var(--orange); }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2.4rem;
+      max-width: 520px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--orange);
+      color: var(--white);
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(224,123,42,0.4);
+      transition: transform .2s, background .2s;
+    }
+    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Tajawal', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: .85rem 2rem;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .btn-secondary:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat .num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--orange);
+    }
+    .hero-stat .lbl {
+      font-size: .9rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero-visual {
+      position: absolute;
+      left: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .phone-mockup {
+      width: 230px;
+      height: 460px;
+      background: linear-gradient(145deg, #1f2937, #111827);
+      border-radius: 38px;
+      border: 3px solid rgba(224,123,42,0.4);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 8px rgba(224,123,42,0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .phone-notch {
+      width: 80px; height: 22px;
+      background: #0d1117;
+      border-radius: 0 0 14px 14px;
+      align-self: center;
+    }
+    .phone-screen {
+      flex: 1;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .phone-header {
+      background: var(--orange);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: var(--white);
+      font-size: .8rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .phone-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .phone-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .phone-text { font-size: .75rem; color: rgba(255,255,255,0.8); font-weight: 600; }
+    .phone-sub { font-size: .65rem; color: rgba(255,255,255,0.4); }
+
+    /* ──────────── SERVICES ──────────── */
+    #services {
+      padding: 90px 6%;
+      background: var(--light);
+    }
+    .section-label {
+      display: inline-block;
+      background: rgba(224,123,42,0.12);
+      color: var(--orange);
+      font-size: .9rem;
+      font-weight: 700;
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: .8rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(224,123,42,0.15), rgba(224,123,42,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-title { font-size: 1.2rem; font-weight: 800; margin-bottom: .5rem; }
+    .service-desc { font-size: .95rem; color: var(--gray); }
+
+    /* ──────────── FEATURES ──────────── */
+    #features {
+      padding: 90px 6%;
+      background: var(--white);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+    .feature-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1rem;
+      box-shadow: 0 6px 20px rgba(224,123,42,0.3);
+    }
+    .feature-title { font-size: 1.1rem; font-weight: 800; margin-bottom: .4rem; }
+    .feature-desc { font-size: .9rem; color: var(--gray); }
+
+    /* ──────────── APP PREVIEW ──────────── */
+    #app-preview {
+      padding: 90px 6%;
+      background: linear-gradient(135deg, #111827 0%, #1e3a5f 100%);
+      text-align: center;
+    }
+    #app-preview .section-title { color: var(--white); }
+    #app-preview .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 3rem; }
+    .screens-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .screen-mock {
+      background: #1f2937;
+      border: 2px solid rgba(224,123,42,0.3);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .screen-mock.center { transform: scale(1.08); }
+    .screen-top {
+      background: var(--orange);
+      padding: 10px 14px;
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+    }
+    .screen-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .screen-row {
+      display: flex;
+      gap: 8px;
+    }
+    .screen-btn {
+      flex: 1;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(224,123,42,0.15);
+      border: 1px solid rgba(224,123,42,0.2);
+    }
+    .screen-btn.active { background: var(--orange); }
+    .screen-line {
+      height: 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+    }
+    .screen-line.w70 { width: 70%; }
+    .screen-line.w50 { width: 50%; }
+    .screen-list-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sli-icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+    .sli-lines { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+    .sli-line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.12); }
+    .sli-line.short { width: 60%; }
+
+    /* ──────────── COVERAGE ──────────── */
+    #coverage {
+      padding: 90px 6%;
+      background: var(--light);
+    }
+    .coverage-inner {
+      background: var(--white);
+      border-radius: 2rem;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.07);
+      flex-wrap: wrap;
+    }
+    .coverage-text { flex: 1; min-width: 260px; }
+    .cities-wrap { flex: 1; min-width: 260px; display: flex; flex-wrap: wrap; gap: .75rem; }
+    .city-tag {
+      background: rgba(224,123,42,0.1);
+      color: var(--orange-dark);
+      padding: .5rem 1.2rem;
+      border-radius: 50px;
+      font-size: .95rem;
+      font-weight: 700;
+      border: 1px solid rgba(224,123,42,0.2);
+    }
+
+    /* ──────────── CTA DOWNLOAD ──────────── */
+    #download {
+      padding: 90px 6%;
+      background: var(--white);
+    }
+    .download-box {
+      background: linear-gradient(135deg, #111827, #1e3a5f);
+      border-radius: 2rem;
+      padding: 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .download-box::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(224,123,42,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .download-box h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .download-box p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+    .store-btns { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+    .store-btn {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.2);
+      color: var(--white);
+      text-decoration: none;
+      padding: .9rem 1.8rem;
+      border-radius: 14px;
+      font-family: 'Tajawal', sans-serif;
+      transition: background .2s, border-color .2s;
+    }
+    .store-btn:hover { background: var(--orange); border-color: var(--orange); }
+    .store-btn .store-icon { font-size: 1.8rem; }
+    .store-text .store-sub { font-size: .75rem; opacity: .7; }
+    .store-text .store-name { font-size: 1.1rem; font-weight: 800; }
+    .coming-badge {
+      display: inline-block;
+      background: rgba(224,123,42,0.2);
+      color: var(--orange-light);
+      font-size: .85rem;
+      font-weight: 700;
+      padding: .3rem .9rem;
+      border-radius: 50px;
+      margin-top: 1.5rem;
+      border: 1px solid rgba(224,123,42,0.3);
+    }
+
+    /* ──────────── CONTACT ──────────── */
+    #contact {
+      padding: 90px 6%;
+      background: var(--dark);
+    }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: rgba(255,255,255,0.55); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: background .2s, border-color .2s;
+      text-decoration: none;
+      display: block;
+    }
+    .contact-card:hover { background: rgba(224,123,42,0.12); border-color: rgba(224,123,42,0.4); }
+    .contact-icon { font-size: 2rem; margin-bottom: .8rem; }
+    .contact-label { font-size: .85rem; color: rgba(255,255,255,0.45); margin-bottom: .3rem; }
+    .contact-value { font-size: 1.05rem; font-weight: 700; color: var(--white); }
+
+    /* ──────────── FOOTER ──────────── */
+    footer {
+      background: #0a0f1a;
+      padding: 2rem 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--white); }
+    .footer-logo span { color: var(--orange); }
+    .footer-copy { font-size: .85rem; color: rgba(255,255,255,0.35); }
+
+    /* ──────────── WHATSAPP FLOAT ──────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      text-decoration: none;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* ──────────── RESPONSIVE ──────────── */
+    @media (max-width: 768px) {
+      nav { padding: 0 5%; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 70px; left: 0; right: 0;
+        background: rgba(17,24,39,0.98);
+        padding: 1.5rem 5%;
+        gap: 1.2rem;
+        border-bottom: 1px solid rgba(224,123,42,0.2);
+      }
+      .hamburger { display: flex; }
+      #hero { padding: 110px 5% 70px; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { display: none; }
+      .coverage-inner { flex-direction: column; }
+      .download-box { padding: 2.5rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav>
+  <div class="nav-logo">Carz<span>ivo</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">الخدمات</a></li>
+    <li><a href="#features">المميزات</a></li>
+    <li><a href="#coverage">التغطية</a></li>
+    <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      التطبيق قريباً على Google Play
+    </div>
+    <h1 class="hero-title">
+      كل خدمات<br>
+      سيارتك في<br>
+      <span class="highlight">مكان واحد</span>
+    </h1>
+    <p class="hero-subtitle">
+      اطلب كرين، نقل بضائع، ورشة صيانة، أو قطع غيار بسهولة وسرعة داخل العراق — كل شيء بضغطة واحدة
+    </p>
+    <div class="hero-btns">
+      <a href="#download" class="btn-primary">
+        ⬇️ حمّل التطبيق
+      </a>
+      <a href="#contact" class="btn-secondary">
+        📞 تواصل معنا
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">4+</div>
+        <div class="lbl">خدمات متكاملة</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">🇮🇶</div>
+        <div class="lbl">داخل العراق</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">24/7</div>
+        <div class="lbl">متاح دائماً</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phone Mockup -->
+  <div class="hero-visual">
+    <div class="phone-mockup">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-header">🚗 Carzivo</div>
+        <div class="phone-card">
+          <div class="phone-icon">🏗️</div>
+          <div>
+            <div class="phone-text">طلب كرين</div>
+            <div class="phone-sub">متاح الآن • سريع</div>
+          </div>
+        </div>
+        <div class="phone-card">
+          <div class="phone-icon">🚛</div>
+          <div>
+            <div class="phone-text">نقل بضائع</div>
+            <div class="phone-sub">متاح الآن • آمن</div>
+          </div>
+        </div>
+        <div class="phone-card">
+          <div class="phone-icon">🔧</div>
+          <div>
+            <div class="phone-text">ورشة صيانة</div>
+            <div class="phone-sub">أقرب ورشة إليك</div>
+          </div>
+        </div>
+        <div class="phone-card">
+          <div class="phone-icon">⚙️</div>
+          <div>
+            <div class="phone-text">قطع غيار</div>
+            <div class="phone-sub">توصيل للمنزل</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SERVICES ════════════ -->
+<section id="services">
+  <span class="section-label">خدماتنا</span>
+  <h2 class="section-title">كل ما تحتاجه لسيارتك</h2>
+  <p class="section-sub">أربع خدمات متكاملة في تطبيق واحد — بسرعة، وأمان، وبأسعار مناسبة</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏗️</div>
+      <div class="service-title">كرين (رافعة)</div>
+      <div class="service-desc">سيارتك عطلت؟ اطلب كرين في دقائق ويصلك أينما كنت داخل العراق. تتبع مباشر حتى الوصول.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚛</div>
+      <div class="service-title">نقل البضائع</div>
+      <div class="service-desc">نقل آمن وسريع للبضائع بمختلف أحجام السيارات. سائقون موثوقون وتتبع لحظي للشحنة.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <div class="service-title">ورش الصيانة</div>
+      <div class="service-desc">احجز موعدك مع أقرب ورشة صيانة معتمدة. تقييمات حقيقية وأسعار واضحة.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <div class="service-title">قطع الغيار</div>
+      <div class="service-desc">اطلب قطع غيار أصلية وتصلك للمنزل. قارن الأسعار واختر الأنسب لسيارتك.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FEATURES ════════════ -->
+<section id="features">
+  <div style="text-align:center">
+    <span class="section-label">لماذا Carzivo؟</span>
+    <h2 class="section-title">مميزات تجعلنا مختلفين</h2>
+    <p class="section-sub" style="margin:0 auto 0">نبني تجربة سهلة وموثوقة للمستخدم العراقي</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-circle">📍</div>
+      <div class="feature-title">تتبع مباشر</div>
+      <div class="feature-desc">تابع موقع السيارة أو السائق لحظةً بلحظة من داخل التطبيق</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-circle">⚡</div>
+      <div class="feature-title">سرعة في التنفيذ</div>
+      <div class="feature-desc">طلبك يصل لأقرب مزود خدمة فوراً لتنفيذ أسرع</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-circle">🛡️</div>
+      <div class="feature-title">مزودون موثوقون</div>
+      <div class="feature-desc">جميع السائقين والورش خضعوا للتحقق والتقييم من المستخدمين</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-circle">💬</div>
+      <div class="feature-title">تواصل مباشر</div>
+      <div class="feature-desc">تحدث مع مزود الخدمة مباشرة من داخل التطبيق بدون مكالمات خارجية</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-circle">📱</div>
+      <div class="feature-title">سهولة الاستخدام</div>
+      <div class="feature-desc">تصميم بسيط وعربي كامل — كل شيء في 3 خطوات فقط</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-circle">🔔</div>
+      <div class="feature-title">إشعارات فورية</div>
+      <div class="feature-desc">تنبيه لحظي عند قبول الطلب وعند وصول مزود الخدمة</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ APP SCREENS ════════════ -->
+<section id="app-preview">
+  <span class="section-label" style="color:var(--orange-light);background:rgba(224,123,42,0.15)">التطبيق</span>
+  <h2 class="section-title">واجهة بسيطة وعربية</h2>
+  <p class="section-sub">صُمِّم التطبيق بالكامل باللغة العربية مع دعم RTL ليناسب المستخدم العراقي</p>
+
+  <div class="screens-row">
+    <!-- Screen 1 -->
+    <div class="screen-mock" style="width:150px">
+      <div class="screen-top">الرئيسية</div>
+      <div class="screen-body">
+        <div class="screen-list-item"><div class="sli-icon"></div><div class="sli-lines"><div class="sli-line"></div><div class="sli-line short"></div></div></div>
+        <div class="screen-list-item"><div class="sli-icon"></div><div class="sli-lines"><div class="sli-line"></div><div class="sli-line short"></div></div></div>
+        <div class="screen-list-item"><div class="sli-icon"></div><div class="sli-lines"><div class="sli-line"></div><div class="sli-line short"></div></div></div>
+        <div class="screen-btn active"></div>
+      </div>
+    </div>
+    <!-- Screen 2 (center) -->
+    <div class="screen-mock center" style="width:165px">
+      <div class="screen-top">طلب كرين 🏗️</div>
+      <div class="screen-body">
+        <div style="height:70px;background:rgba(224,123,42,0.12);border-radius:10px;border:1px solid rgba(224,123,42,0.2)"></div>
+        <div class="screen-line" style="background:rgba(255,255,255,0.1)"></div>
+        <div class="screen-line w70" style="background:rgba(255,255,255,0.07)"></div>
+        <div class="screen-row">
+          <div class="screen-btn"></div>
+          <div class="screen-btn active"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Screen 3 -->
+    <div class="screen-mock" style="width:150px">
+      <div class="screen-top">تتبع الطلب</div>
+      <div class="screen-body">
+        <div style="height:80px;background:rgba(30,58,95,0.6);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.8rem">📍</div>
+        <div class="screen-line" style="background:rgba(255,255,255,0.1)"></div>
+        <div class="screen-line w50" style="background:rgba(255,255,255,0.07)"></div>
+        <div class="screen-btn active" style="height:32px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ COVERAGE ════════════ -->
+<section id="coverage">
+  <div class="coverage-inner">
+    <div class="coverage-text">
+      <span class="section-label">التغطية</span>
+      <h2 class="section-title" style="font-size:2rem">نغطي مدن العراق</h2>
+      <p style="color:var(--gray);font-size:1rem;margin-top:.5rem">
+        نعمل على توسيع التغطية باستمرار لتصل خدماتنا إلى كل مدينة عراقية
+      </p>
+    </div>
+    <div class="cities-wrap">
+      <span class="city-tag">🏙️ الموصل</span>
+      <span class="city-tag">🏙️ بغداد</span>
+      <span class="city-tag">🏙️ أربيل</span>
+      <span class="city-tag">🏙️ البصرة</span>
+      <span class="city-tag">🏙️ كركوك</span>
+      <span class="city-tag">🏙️ السليمانية</span>
+      <span class="city-tag">+ المزيد قريباً</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ DOWNLOAD ════════════ -->
+<section id="download">
+  <div class="download-box">
+    <h2>حمّل Carzivo قريباً</h2>
+    <p>نحن في المراحل الأخيرة من الإطلاق. سجّل اهتمامك الآن وكن من أوائل المستخدمين</p>
+    <div class="store-btns">
+      <a href="#contact" class="store-btn">
+        <span class="store-icon">▶️</span>
+        <div class="store-text">
+          <div class="store-sub">قريباً على</div>
+          <div class="store-name">Google Play</div>
+        </div>
+      </a>
+    </div>
+    <div><span class="coming-badge">🚀 الإطلاق قريب جداً</span></div>
+  </div>
+</section>
+
+<!-- ════════════ CONTACT ════════════ -->
+<section id="contact">
+  <span class="section-label">تواصل</span>
+  <h2 class="section-title">تواصل معنا</h2>
+  <p class="section-sub">لديك سؤال أو تريد الانضمام كمزود خدمة؟ نحن هنا</p>
+  <div class="contact-grid">
+    <a class="contact-card" href="https://wa.me/905347652054" target="_blank" rel="noopener">
+      <div class="contact-icon">💬</div>
+      <div class="contact-label">واتساب</div>
+      <div class="contact-value">+90 534 765 2054</div>
+    </a>
+    <a class="contact-card" href="mailto:info@carzivo.com">
+      <div class="contact-icon">📧</div>
+      <div class="contact-label">البريد الإلكتروني</div>
+      <div class="contact-value">info@carzivo.com</div>
+    </a>
+    <a class="contact-card" href="https://wa.me/905347652054" target="_blank" rel="noopener">
+      <div class="contact-icon">🌐</div>
+      <div class="contact-label">الموقع</div>
+      <div class="contact-value">www.carzivo.com</div>
+    </a>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-logo">Carz<span>ivo</span></div>
+  <div class="footer-copy">© 2026 Carzivo — جميع الحقوق محفوظة</div>
+</footer>
+
+<!-- ════════════ WHATSAPP FLOAT ════════════ -->
+<a class="wa-float" href="https://wa.me/905347652054" target="_blank" rel="noopener" title="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  // Close nav when clicking a link on mobile
+  document.querySelectorAll('#navLinks a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
