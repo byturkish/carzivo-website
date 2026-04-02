@@ -10,7 +10,7 @@
   <title>Carzivo – كل خدمات سيارتك في مكان واحد</title>
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Noto+Sans+Arabic:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,6 +34,10 @@
       color: var(--dark);
       line-height: 1.7;
       overflow-x: hidden;
+    }
+    body.lang-ckb {
+      font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif;
+      line-height: 1.9;
     }
     body.ltr { direction: ltr; text-align: left; }
     body.ltr .hero-content,
@@ -192,6 +196,7 @@
       color: var(--white);
       line-height: 1.25;
       margin-bottom: 1.2rem;
+      text-wrap: balance;
     }
     .hero-title .highlight { color: var(--orange); }
     .hero-subtitle {
@@ -199,6 +204,26 @@
       color: rgba(255,255,255,0.7);
       margin-bottom: 2.4rem;
       max-width: 520px;
+      text-wrap: pretty;
+    }
+    body.lang-ckb .hero-title {
+      font-size: clamp(2.05rem, 4.1vw, 3.15rem);
+      line-height: 1.45;
+      max-width: 620px;
+    }
+    body.lang-ckb .hero-subtitle {
+      font-size: 1.12rem;
+      max-width: 620px;
+      color: rgba(255,255,255,0.78);
+    }
+    body.lang-ckb .section-title {
+      line-height: 1.45;
+    }
+    body.lang-ckb .service-title,
+    body.lang-ckb .feature-title,
+    body.lang-ckb .roadmap-title,
+    body.lang-ckb .contact-value {
+      line-height: 1.5;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
@@ -1352,8 +1377,8 @@
       navCoverage: 'داپۆشین',
       navContact: 'پەیوەندیمان پێوە بکە',
       heroBadge: 'بەم زووانە لە Google Play و App Store',
-      heroTitle: 'هەموو خزمەتگوزارییەکانی<br>ئۆتۆمبێلەکەت لە<br><span class="highlight">یەک شوێن</span>',
-      heroSubtitle: 'Carzivo سەرەتا لە مووسڵ دەست پێ دەکات، پاشان بۆ هەموو عێراق فراوان دەبێتەوە — کرێن، گواستنەوە، وۆرکشۆپ و پارچەی یەدەک لە یەک ئەپدا.',
+      heroTitle: 'هەموو خزمەتگوزارییەکانی ئۆتۆمبێلەکەت<br>لە <span class="highlight">یەک شوێن</span>',
+      heroSubtitle: 'Carzivo سەرەتا لە مووسڵ دەست پێ دەکات، پاشان بۆ شارەکانی دیکەی عێراق فراوان دەبێتەوە — کرێن، گواستنەوە، وۆرکشۆپ و پارچەی یەدەک هەموویان لە یەک ئەپدا.',
       heroDownloadBtn: '⬇️ ئەپەکە دابەزێنە',
       heroContactBtn: '📞 پەیوەندیمان پێوە بکە',
       heroStat1: 'خزمەتگوزاریی یەکگرتوو',
