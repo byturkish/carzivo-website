@@ -53,6 +53,11 @@
     body.ltr .feature-item,
     body.ltr .coverage-inner,
     body.ltr .screens-row { direction: ltr; }
+    body.ltr .hero-content { max-width: 560px; }
+    body.ltr .hero-visual {
+      left: auto;
+      right: 6%;
+    }
 
     /* ──────────── NAV ──────────── */
     nav {
@@ -150,6 +155,13 @@
       max-width: 650px;
       position: relative;
       z-index: 2;
+    }
+    .hero-brand {
+      height: 64px;
+      width: auto;
+      margin-bottom: 1.25rem;
+      display: block;
+      object-fit: contain;
     }
     .hero-badge {
       display: inline-flex;
@@ -654,6 +666,7 @@
       .hero-btns { justify-content: center; }
       .hero-stats { justify-content: center; }
       .hero-visual { display: none; }
+      .hero-brand { margin-inline: auto; }
       .coverage-inner { flex-direction: column; }
       .download-box { padding: 2.5rem 1.5rem; }
       footer { flex-direction: column; text-align: center; }
@@ -687,7 +700,7 @@
 <!-- ════════════ HERO ════════════ -->
 <section id="hero">
   <div class="hero-content">
-    <img src="images/logo.png" alt="Carzivo" style="height:70px;width:auto;margin-bottom:1.5rem;display:block">
+    <img src="images/logo.png" alt="Carzivo" class="hero-brand">
     <div class="hero-badge">
       <span class="dot"></span>
       <span id="heroBadge">التطبيق قريباً على Google Play</span>
@@ -945,6 +958,13 @@
           <div class="store-name">Google Play</div>
         </div>
       </a>
+      <a href="#contact" class="store-btn">
+        <span class="store-icon"></span>
+        <div class="store-text">
+          <div class="store-sub" id="storeSubApple">قريباً على</div>
+          <div class="store-name" id="storeNameApple">App Store</div>
+        </div>
+      </a>
     </div>
     <div><span class="coming-badge" id="comingBadge">🚀 الإطلاق قريب جداً</span></div>
   </div>
@@ -990,7 +1010,7 @@
       <div class="contact-label" id="contactCard2Label">البريد الإلكتروني</div>
       <div class="contact-value">info@carzivo.com</div>
     </a>
-    <a class="contact-card" href="https://wa.me/905347652054" target="_blank" rel="noopener">
+    <a class="contact-card" href="https://www.carzivo.com" target="_blank" rel="noopener">
       <div class="contact-icon">🌐</div>
       <div class="contact-label" id="contactCard3Label">الموقع</div>
       <div class="contact-value">www.carzivo.com</div>
@@ -1037,7 +1057,7 @@
       navFeatures: 'المميزات',
       navCoverage: 'التغطية',
       navContact: 'تواصل معنا',
-      heroBadge: 'التطبيق قريباً على Google Play',
+      heroBadge: 'التطبيق قريباً على Google Play و App Store',
       heroTitle: 'كل خدمات<br>سيارتك في<br><span class="highlight">مكان واحد</span>',
       heroSubtitle: 'ابدأ رحلتك مع Carzivo في الموصل أولاً، ثم قريباً في باقي المدن العراقية — كرين، نقل، ورش، وقطع غيار في تطبيق واحد.',
       heroDownloadBtn: '⬇️ حمّل التطبيق',
@@ -1113,6 +1133,8 @@
       downloadTitle: 'حمّل Carzivo قريباً',
       downloadSubtitle: 'نطلق أولاً في الموصل، ثم نتوسع في العراق. سجّل اهتمامك الآن وكن من أوائل المستخدمين.',
       storeSub: 'قريباً على',
+      storeSubApple: 'قريباً على',
+      storeNameApple: 'App Store',
       comingBadge: '🚀 الإطلاق قريب جداً',
       contactLabel: 'تواصل',
       contactTitle: 'تواصل معنا',
@@ -1133,7 +1155,7 @@
       navFeatures: 'Features',
       navCoverage: 'Coverage',
       navContact: 'Contact Us',
-      heroBadge: 'Coming soon to Google Play',
+      heroBadge: 'Coming soon to Google Play and the App Store',
       heroTitle: 'All your car<br>services in<br><span class="highlight">one place</span>',
       heroSubtitle: 'Carzivo starts in Mosul, then expands across Iraq — towing, cargo, workshops, and spare parts in one app.',
       heroDownloadBtn: '⬇️ Get the app',
@@ -1209,6 +1231,8 @@
       downloadTitle: 'Get Carzivo soon',
       downloadSubtitle: 'Mosul comes first, then the rest of Iraq. Register your interest now and be among the first users.',
       storeSub: 'Coming soon on',
+      storeSubApple: 'Coming soon on',
+      storeNameApple: 'App Store',
       comingBadge: '🚀 Launching very soon',
       contactLabel: 'Contact',
       contactTitle: 'Get in touch',
@@ -1229,7 +1253,7 @@
       navFeatures: 'Özellikler',
       navCoverage: 'Kapsama',
       navContact: 'Bize Ulaşın',
-      heroBadge: 'Yakında Google Play’de',
+      heroBadge: 'Yakında Google Play ve App Store’da',
       heroTitle: 'Aracınız için<br>tüm hizmetler<br><span class="highlight">tek yerde</span>',
       heroSubtitle: 'Carzivo önce Musul’da başlıyor, sonra Irak geneline yayılıyor — çekici, yük taşıma, servisler ve yedek parçalar tek uygulamada.',
       heroDownloadBtn: '⬇️ Uygulamayı indir',
@@ -1305,6 +1329,8 @@
       downloadTitle: 'Carzivo çok yakında',
       downloadSubtitle: 'Önce Musul, sonra Irak geneli. İlginizi şimdi bırakın ve ilk kullanıcılar arasında yer alın.',
       storeSub: 'Yakında',
+      storeSubApple: 'Yakında',
+      storeNameApple: 'App Store',
       comingBadge: '🚀 Lansman çok yakında',
       contactLabel: 'İletişim',
       contactTitle: 'Bizimle iletişime geçin',
@@ -1325,7 +1351,7 @@
       navFeatures: 'تایبەتمەندییەکان',
       navCoverage: 'داپۆشین',
       navContact: 'پەیوەندیمان پێوە بکە',
-      heroBadge: 'بەم زووانە لە Google Play',
+      heroBadge: 'بەم زووانە لە Google Play و App Store',
       heroTitle: 'هەموو خزمەتگوزارییەکانی<br>ئۆتۆمبێلەکەت لە<br><span class="highlight">یەک شوێن</span>',
       heroSubtitle: 'Carzivo سەرەتا لە مووسڵ دەست پێ دەکات، پاشان بۆ هەموو عێراق فراوان دەبێتەوە — کرێن، گواستنەوە، وۆرکشۆپ و پارچەی یەدەک لە یەک ئەپدا.',
       heroDownloadBtn: '⬇️ ئەپەکە دابەزێنە',
@@ -1401,6 +1427,8 @@
       downloadTitle: 'Carzivo بەم زووانە دێت',
       downloadSubtitle: 'یەکەم لە مووسڵ، پاشان لە سەرانسەری عێراق. ئێستا ناوت تۆمار بکە و لە یەکەم بەکارهێنەراندا بە.',
       storeSub: 'بەم زووانە لە',
+      storeSubApple: 'بەم زووانە لە',
+      storeNameApple: 'App Store',
       comingBadge: '🚀 دەستپێکردن زۆر نزیکە',
       contactLabel: 'پەیوەندی',
       contactTitle: 'پەیوەندیمان پێوە بکە',
