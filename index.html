@@ -35,6 +35,24 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
+    body.ltr { direction: ltr; text-align: left; }
+    body.ltr .hero-content,
+    body.ltr .coverage-text,
+    body.ltr #contact,
+    body.ltr #services,
+    body.ltr #features,
+    body.ltr #download { text-align: left; }
+    body.ltr .contact-grid,
+    body.ltr .store-btns,
+    body.ltr .hero-btns,
+    body.ltr .hero-stats,
+    body.ltr .cities-wrap,
+    body.ltr footer,
+    body.ltr nav,
+    body.ltr .contact-card,
+    body.ltr .feature-item,
+    body.ltr .coverage-inner,
+    body.ltr .screens-row { direction: ltr; }
 
     /* ──────────── NAV ──────────── */
     nav {
@@ -73,6 +91,32 @@
       font-weight: 700 !important;
     }
     .nav-cta:hover { background: var(--orange-dark) !important; color: var(--white) !important; }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+    .lang-switcher {
+      appearance: none;
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      padding: .45rem 2.2rem .45rem .95rem;
+      font-family: inherit;
+      font-size: .92rem;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      background-image: linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.75) 50%), linear-gradient(135deg, rgba(255,255,255,0.75) 50%, transparent 50%);
+      background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+    }
+    .lang-switcher option {
+      color: var(--dark);
+      background: var(--white);
+    }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; }
 
@@ -402,6 +446,67 @@
       border: 1px solid rgba(224,123,42,0.2);
     }
 
+    /* ──────────── ROADMAP ──────────── */
+    #roadmap {
+      padding: 90px 6%;
+      background: linear-gradient(180deg, #fff7f0 0%, #ffffff 100%);
+    }
+    .roadmap-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+    }
+    .roadmap-head .section-sub {
+      margin: 0 auto;
+    }
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .roadmap-card {
+      background: var(--white);
+      border: 1px solid rgba(224,123,42,0.15);
+      border-radius: 1.4rem;
+      padding: 1.6rem;
+      box-shadow: 0 10px 35px rgba(17,24,39,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .roadmap-card::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: 0;
+      top: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    }
+    .roadmap-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 .8rem;
+      border-radius: 999px;
+      background: rgba(224,123,42,0.12);
+      color: var(--orange-dark);
+      font-size: .85rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .roadmap-title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      margin-bottom: .45rem;
+      color: var(--dark);
+    }
+    .roadmap-desc {
+      font-size: .95rem;
+      color: var(--gray);
+    }
+
     /* ──────────── CTA DOWNLOAD ──────────── */
     #download {
       padding: 90px 6%;
@@ -538,6 +643,12 @@
         gap: 1.2rem;
         border-bottom: 1px solid rgba(224,123,42,0.2);
       }
+      .nav-actions { gap: .55rem; }
+      .lang-switcher {
+        max-width: 110px;
+        padding-inline: .8rem 1.9rem;
+        font-size: .84rem;
+      }
       .hamburger { display: flex; }
       #hero { padding: 110px 5% 70px; text-align: center; }
       .hero-btns { justify-content: center; }
@@ -555,13 +666,21 @@
 <nav>
   <div class="nav-logo"><img src="images/logo.png" alt="Carzivo"></div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#services">الخدمات</a></li>
-    <li><a href="#features">المميزات</a></li>
-    <li><a href="#coverage">التغطية</a></li>
-    <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    <li><a href="#services" id="navServices">الخدمات</a></li>
+    <li><a href="#features" id="navFeatures">المميزات</a></li>
+    <li><a href="#coverage" id="navCoverage">التغطية</a></li>
+    <li><a href="#contact" class="nav-cta" id="navContact">تواصل معنا</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
+  <div class="nav-actions">
+    <select class="lang-switcher" id="languageSwitcher" aria-label="Select language">
+      <option value="ar">العربية</option>
+      <option value="en">English</option>
+      <option value="tr">Türkçe</option>
+      <option value="ckb">کوردی</option>
+    </select>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
@@ -571,36 +690,36 @@
     <img src="images/logo.png" alt="Carzivo" style="height:70px;width:auto;margin-bottom:1.5rem;display:block">
     <div class="hero-badge">
       <span class="dot"></span>
-      التطبيق قريباً على Google Play
+      <span id="heroBadge">التطبيق قريباً على Google Play</span>
     </div>
-    <h1 class="hero-title">
+    <h1 class="hero-title" id="heroTitle">
       كل خدمات<br>
       سيارتك في<br>
       <span class="highlight">مكان واحد</span>
     </h1>
-    <p class="hero-subtitle">
+    <p class="hero-subtitle" id="heroSubtitle">
       اطلب كرين، نقل بضائع، ورشة صيانة، أو قطع غيار بسهولة وسرعة داخل العراق — كل شيء بضغطة واحدة
     </p>
     <div class="hero-btns">
-      <a href="#download" class="btn-primary">
+      <a href="#download" class="btn-primary" id="heroDownloadBtn">
         ⬇️ حمّل التطبيق
       </a>
-      <a href="#contact" class="btn-secondary">
+      <a href="#contact" class="btn-secondary" id="heroContactBtn">
         📞 تواصل معنا
       </a>
     </div>
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="num">4+</div>
-        <div class="lbl">خدمات متكاملة</div>
+        <div class="lbl" id="heroStat1">خدمات متكاملة</div>
       </div>
       <div class="hero-stat">
         <div class="num">🇮🇶</div>
-        <div class="lbl">داخل العراق</div>
+        <div class="lbl" id="heroStat2">داخل العراق</div>
       </div>
       <div class="hero-stat">
         <div class="num">24/7</div>
-        <div class="lbl">متاح دائماً</div>
+        <div class="lbl" id="heroStat3">متاح دائماً</div>
       </div>
     </div>
   </div>
@@ -614,30 +733,30 @@
 
 <!-- ════════════ SERVICES ════════════ -->
 <section id="services">
-  <span class="section-label">خدماتنا</span>
-  <h2 class="section-title">كل ما تحتاجه لسيارتك</h2>
-  <p class="section-sub">أربع خدمات متكاملة في تطبيق واحد — بسرعة، وأمان، وبأسعار مناسبة</p>
+  <span class="section-label" id="servicesLabel">خدماتنا</span>
+  <h2 class="section-title" id="servicesTitle">كل ما تحتاجه لسيارتك</h2>
+  <p class="section-sub" id="servicesSubtitle">أربع خدمات متكاملة في تطبيق واحد — بسرعة، وأمان، وبأسعار مناسبة</p>
 
   <div class="services-grid">
     <div class="service-card">
       <div class="service-icon">🏗️</div>
-      <div class="service-title">كرين (رافعة)</div>
-      <div class="service-desc">سيارتك عطلت؟ اطلب كرين في دقائق ويصلك أينما كنت داخل العراق. تتبع مباشر حتى الوصول.</div>
+      <div class="service-title" id="service1Title">كرين (رافعة)</div>
+      <div class="service-desc" id="service1Desc">سيارتك عطلت؟ اطلب كرين في دقائق ويصلك أينما كنت داخل العراق. تتبع مباشر حتى الوصول.</div>
     </div>
     <div class="service-card">
       <div class="service-icon">🚛</div>
-      <div class="service-title">نقل البضائع</div>
-      <div class="service-desc">نقل آمن وسريع للبضائع بمختلف أحجام السيارات. سائقون موثوقون وتتبع لحظي للشحنة.</div>
+      <div class="service-title" id="service2Title">نقل البضائع</div>
+      <div class="service-desc" id="service2Desc">نقل آمن وسريع للبضائع بمختلف أحجام السيارات. سائقون موثوقون وتتبع لحظي للشحنة.</div>
     </div>
     <div class="service-card">
       <div class="service-icon">🔧</div>
-      <div class="service-title">ورش الصيانة</div>
-      <div class="service-desc">احجز موعدك مع أقرب ورشة صيانة معتمدة. تقييمات حقيقية وأسعار واضحة.</div>
+      <div class="service-title" id="service3Title">ورش الصيانة</div>
+      <div class="service-desc" id="service3Desc">احجز موعدك مع أقرب ورشة صيانة معتمدة. تقييمات حقيقية وأسعار واضحة.</div>
     </div>
     <div class="service-card">
       <div class="service-icon">⚙️</div>
-      <div class="service-title">قطع الغيار</div>
-      <div class="service-desc">اطلب قطع غيار أصلية وتصلك للمنزل. قارن الأسعار واختر الأنسب لسيارتك.</div>
+      <div class="service-title" id="service4Title">قطع الغيار</div>
+      <div class="service-desc" id="service4Desc">اطلب قطع غيار أصلية وتصلك للمنزل. قارن الأسعار واختر الأنسب لسيارتك.</div>
     </div>
   </div>
 </section>
@@ -645,45 +764,45 @@
 <!-- ════════════ FEATURES ════════════ -->
 <section id="features">
   <div style="text-align:center">
-    <span class="section-label">لماذا Carzivo؟</span>
-    <h2 class="section-title">مميزات تجعلنا مختلفين</h2>
-    <p class="section-sub" style="margin:0 auto 0">نبني تجربة سهلة وموثوقة للمستخدم العراقي</p>
+    <span class="section-label" id="featuresLabel">لماذا Carzivo؟</span>
+    <h2 class="section-title" id="featuresTitle">مميزات تجعلنا مختلفين</h2>
+    <p class="section-sub" style="margin:0 auto 0" id="featuresSubtitle">نبني تجربة سهلة وموثوقة للمستخدم العراقي</p>
   </div>
   <div class="features-grid">
     <div class="feature-item">
       <div class="feature-circle">📍</div>
-      <div class="feature-title">تتبع مباشر</div>
-      <div class="feature-desc">تابع موقع السيارة أو السائق لحظةً بلحظة من داخل التطبيق</div>
+      <div class="feature-title" id="feature1Title">تتبع مباشر</div>
+      <div class="feature-desc" id="feature1Desc">تابع موقع السيارة أو السائق لحظةً بلحظة من داخل التطبيق</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">⚡</div>
-      <div class="feature-title">سرعة في التنفيذ</div>
-      <div class="feature-desc">طلبك يصل لأقرب مزود خدمة فوراً لتنفيذ أسرع</div>
+      <div class="feature-title" id="feature2Title">سرعة في التنفيذ</div>
+      <div class="feature-desc" id="feature2Desc">طلبك يصل لأقرب مزود خدمة فوراً لتنفيذ أسرع</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">🛡️</div>
-      <div class="feature-title">مزودون موثوقون</div>
-      <div class="feature-desc">جميع السائقين والورش خضعوا للتحقق والتقييم من المستخدمين</div>
+      <div class="feature-title" id="feature3Title">مزودون موثوقون</div>
+      <div class="feature-desc" id="feature3Desc">جميع السائقين والورش خضعوا للتحقق والتقييم من المستخدمين</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">💬</div>
-      <div class="feature-title">تواصل مباشر</div>
-      <div class="feature-desc">تحدث مع مزود الخدمة مباشرة من داخل التطبيق بدون مكالمات خارجية</div>
+      <div class="feature-title" id="feature4Title">تواصل مباشر</div>
+      <div class="feature-desc" id="feature4Desc">تحدث مع مزود الخدمة مباشرة من داخل التطبيق بدون مكالمات خارجية</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">📱</div>
-      <div class="feature-title">سهولة الاستخدام</div>
-      <div class="feature-desc">تصميم بسيط وعربي كامل — كل شيء في 3 خطوات فقط</div>
+      <div class="feature-title" id="feature5Title">سهولة الاستخدام</div>
+      <div class="feature-desc" id="feature5Desc">تصميم بسيط وعربي كامل — كل شيء في 3 خطوات فقط</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">🔔</div>
-      <div class="feature-title">إشعارات فورية</div>
-      <div class="feature-desc">تنبيه لحظي عند قبول الطلب وعند وصول مزود الخدمة</div>
+      <div class="feature-title" id="feature6Title">إشعارات فورية</div>
+      <div class="feature-desc" id="feature6Desc">تنبيه لحظي عند قبول الطلب وعند وصول مزود الخدمة</div>
     </div>
     <div class="feature-item">
       <div class="feature-circle">🚚</div>
-      <div class="feature-title">توصيل قطع الغيار</div>
-      <div class="feature-desc">اطلب قطع الغيار وتصلك عن طريق المندوبين مباشرةً إلى باب منزلك</div>
+      <div class="feature-title" id="feature7Title">توصيل قطع الغيار</div>
+      <div class="feature-desc" id="feature7Desc">اطلب قطع الغيار وتصلك عن طريق المندوبين مباشرةً إلى باب منزلك</div>
     </div>
   </div>
 </section>
@@ -699,34 +818,34 @@
     <!-- Text -->
     <div style="flex:1;min-width:260px;color:white">
       <div style="display:inline-block;background:rgba(255,255,255,0.2);color:white;font-size:.9rem;font-weight:700;padding:.35rem 1rem;border-radius:50px;margin-bottom:1.2rem">
-        خدمة حصرية
+        <span id="courierLabel">خدمة حصرية</span>
       </div>
-      <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.3;margin-bottom:1rem">
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.3;margin-bottom:1rem" id="courierTitle">
         تتبّع مندوب Carzivo الخاص بك لحظة بلحظة!
       </h2>
-      <p style="font-size:1.05rem;opacity:.9;line-height:1.8;margin-bottom:2rem">
+      <p style="font-size:1.05rem;opacity:.9;line-height:1.8;margin-bottom:2rem" id="courierSubtitle">
         خدمة مندوبين حصرية لتوصيل قطع الغيار مباشرة للورش، وأيضاً خدمة تكسي لنقلك من وإلى الورشة.
       </p>
       <div style="display:flex;flex-direction:column;gap:1rem">
         <div style="display:flex;align-items:flex-start;gap:1rem;background:rgba(255,255,255,0.15);border-radius:16px;padding:1rem 1.2rem">
           <span style="font-size:1.8rem">🛵</span>
           <div>
-            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem">قطع غيارك واصلة</div>
-            <div style="font-size:.9rem;opacity:.85">المندوب يستلم القطعة من الوكيل ويوصلها مباشرة للورشة أو لبابك</div>
+            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem" id="courierFeature1Title">قطع غيارك واصلة</div>
+            <div style="font-size:.9rem;opacity:.85" id="courierFeature1Desc">المندوب يستلم القطعة من الوكيل ويوصلها مباشرة للورشة أو لبابك</div>
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:1rem;background:rgba(255,255,255,0.15);border-radius:16px;padding:1rem 1.2rem">
           <span style="font-size:1.8rem">🚕</span>
           <div>
-            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem">تكسي الورشة متاح</div>
-            <div style="font-size:.9rem;opacity:.85">احجز تكسي ينقلك من وإلى الورشة بكل راحة وأمان</div>
+            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem" id="courierFeature2Title">تكسي الورشة متاح</div>
+            <div style="font-size:.9rem;opacity:.85" id="courierFeature2Desc">احجز تكسي ينقلك من وإلى الورشة بكل راحة وأمان</div>
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:1rem;background:rgba(255,255,255,0.15);border-radius:16px;padding:1rem 1.2rem">
           <span style="font-size:1.8rem">📍</span>
           <div>
-            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem">تتبع مباشر على الخريطة</div>
-            <div style="font-size:.9rem;opacity:.85">شاهد موقع المندوب لحظةً بلحظة حتى يصل إليك</div>
+            <div style="font-weight:800;font-size:1rem;margin-bottom:.25rem" id="courierFeature3Title">تتبع مباشر على الخريطة</div>
+            <div style="font-size:.9rem;opacity:.85" id="courierFeature3Desc">شاهد موقع المندوب لحظةً بلحظة حتى يصل إليك</div>
           </div>
         </div>
       </div>
@@ -736,9 +855,9 @@
 
 <!-- ════════════ APP SCREENS ════════════ -->
 <section id="app-preview">
-  <span class="section-label" style="color:var(--orange-light);background:rgba(224,123,42,0.15)">التطبيق</span>
-  <h2 class="section-title">واجهة بسيطة وعربية</h2>
-  <p class="section-sub">صُمِّم التطبيق بالكامل باللغة العربية مع دعم RTL ليناسب المستخدم العراقي</p>
+  <span class="section-label" style="color:var(--orange-light);background:rgba(224,123,42,0.15)" id="appPreviewLabel">التطبيق</span>
+  <h2 class="section-title" id="appPreviewTitle">واجهة بسيطة وعربية</h2>
+  <p class="section-sub" id="appPreviewSubtitle">صُمِّم التطبيق بالكامل باللغة العربية مع دعم RTL ليناسب المستخدم العراقي</p>
 
   <div class="screens-row">
     <img src="images/screen-crane.jpg" alt="طلب كرين"
@@ -763,20 +882,52 @@
 <section id="coverage">
   <div class="coverage-inner">
     <div class="coverage-text">
-      <span class="section-label">التغطية</span>
-      <h2 class="section-title" style="font-size:2rem">نغطي مدن العراق</h2>
-      <p style="color:var(--gray);font-size:1rem;margin-top:.5rem">
-        نعمل على توسيع التغطية باستمرار لتصل خدماتنا إلى كل مدينة عراقية
+      <span class="section-label" id="coverageLabel">التغطية</span>
+      <h2 class="section-title" style="font-size:2rem" id="coverageTitle">نبدأ من الموصل ثم نتوسع</h2>
+      <p style="color:var(--gray);font-size:1rem;margin-top:.5rem" id="coverageSubtitle">
+        إطلاقنا يبدأ في الموصل، ثم نتوسع إلى باقي المدن العراقية، وبعدها إلى الدول العربية وتركيا ثم إلى الأسواق العالمية.
       </p>
     </div>
     <div class="cities-wrap">
-      <span class="city-tag">🏙️ الموصل</span>
-      <span class="city-tag">🏙️ بغداد</span>
-      <span class="city-tag">🏙️ أربيل</span>
-      <span class="city-tag">🏙️ البصرة</span>
-      <span class="city-tag">🏙️ كركوك</span>
-      <span class="city-tag">🏙️ السليمانية</span>
-      <span class="city-tag">+ المزيد قريباً</span>
+      <span class="city-tag" id="coverageTag1">🏙️ الموصل أولاً</span>
+      <span class="city-tag" id="coverageTag2">🏙️ بغداد</span>
+      <span class="city-tag" id="coverageTag3">🏙️ أربيل</span>
+      <span class="city-tag" id="coverageTag4">🏙️ البصرة</span>
+      <span class="city-tag" id="coverageTag5">🏙️ كركوك</span>
+      <span class="city-tag" id="coverageTag6">🏙️ السليمانية</span>
+      <span class="city-tag" id="coverageTag7">🌍 الدول العربية وتركيا لاحقاً</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ROADMAP ════════════ -->
+<section id="roadmap">
+  <div class="roadmap-head">
+    <span class="section-label" id="roadmapLabel">خارطة الإطلاق</span>
+    <h2 class="section-title" id="roadmapTitle">نمو مرحلي ومدروس</h2>
+    <p class="section-sub" id="roadmapSubtitle">نبدأ بسوق واضح ونثبت الجودة التشغيلية، ثم نتوسع خطوة بخطوة إلى أسواق أكبر.</p>
+  </div>
+
+  <div class="roadmap-grid">
+    <div class="roadmap-card">
+      <div class="roadmap-step" id="roadmapStep1">المرحلة 1</div>
+      <div class="roadmap-title" id="roadmapCard1Title">الموصل</div>
+      <div class="roadmap-desc" id="roadmapCard1Desc">إطلاق أولي مركز لاختبار التجربة، بناء الثقة، وضبط العمليات اليومية.</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="roadmap-step" id="roadmapStep2">المرحلة 2</div>
+      <div class="roadmap-title" id="roadmapCard2Title">باقي مدن العراق</div>
+      <div class="roadmap-desc" id="roadmapCard2Desc">توسيع الشبكة إلى المدن الرئيسية بعد تثبيت نموذج التشغيل في الموصل.</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="roadmap-step" id="roadmapStep3">المرحلة 3</div>
+      <div class="roadmap-title" id="roadmapCard3Title">الدول العربية وتركيا</div>
+      <div class="roadmap-desc" id="roadmapCard3Desc">الاستفادة من الموقع متعدد اللغات للدخول الإقليمي بخدمات واضحة وقابلة للتوسع.</div>
+    </div>
+    <div class="roadmap-card">
+      <div class="roadmap-step" id="roadmapStep4">المرحلة 4</div>
+      <div class="roadmap-title" id="roadmapCard4Title">التوسع العالمي</div>
+      <div class="roadmap-desc" id="roadmapCard4Desc">بناء منصة سيارات وخدمات لوجستية قابلة للنمو في أسواق دولية متعددة.</div>
     </div>
   </div>
 </section>
@@ -784,26 +935,26 @@
 <!-- ════════════ DOWNLOAD ════════════ -->
 <section id="download">
   <div class="download-box">
-    <h2>حمّل Carzivo قريباً</h2>
-    <p>نحن في المراحل الأخيرة من الإطلاق. سجّل اهتمامك الآن وكن من أوائل المستخدمين</p>
+    <h2 id="downloadTitle">حمّل Carzivo قريباً</h2>
+    <p id="downloadSubtitle">نطلق أولاً في الموصل، ثم نتوسع في العراق. سجّل اهتمامك الآن وكن من أوائل المستخدمين.</p>
     <div class="store-btns">
       <a href="#contact" class="store-btn">
         <span class="store-icon">▶️</span>
         <div class="store-text">
-          <div class="store-sub">قريباً على</div>
+          <div class="store-sub" id="storeSub">قريباً على</div>
           <div class="store-name">Google Play</div>
         </div>
       </a>
     </div>
-    <div><span class="coming-badge">🚀 الإطلاق قريب جداً</span></div>
+    <div><span class="coming-badge" id="comingBadge">🚀 الإطلاق قريب جداً</span></div>
   </div>
 </section>
 
 <!-- ════════════ CONTACT ════════════ -->
 <section id="contact">
-  <span class="section-label">تواصل</span>
-  <h2 class="section-title">تواصل معنا</h2>
-  <p class="section-sub">لديك سؤال أو تريد الانضمام كمزود خدمة؟ نحن هنا</p>
+  <span class="section-label" id="contactLabel">تواصل</span>
+  <h2 class="section-title" id="contactTitle">تواصل معنا</h2>
+  <p class="section-sub" id="contactSubtitle">لديك سؤال أو تريد الانضمام كمزود خدمة؟ نحن هنا</p>
   <!-- Social Media -->
   <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem">
     <a href="https://www.facebook.com/share/1BronaD3Kq/" target="_blank" rel="noopener"
@@ -831,17 +982,17 @@
   <div class="contact-grid">
     <a class="contact-card" href="https://wa.me/905347652054" target="_blank" rel="noopener">
       <div class="contact-icon">💬</div>
-      <div class="contact-label">واتساب</div>
+      <div class="contact-label" id="contactCard1Label">واتساب</div>
       <div class="contact-value">+90 534 765 2054</div>
     </a>
     <a class="contact-card" href="mailto:info@carzivo.com">
       <div class="contact-icon">📧</div>
-      <div class="contact-label">البريد الإلكتروني</div>
+      <div class="contact-label" id="contactCard2Label">البريد الإلكتروني</div>
       <div class="contact-value">info@carzivo.com</div>
     </a>
     <a class="contact-card" href="https://wa.me/905347652054" target="_blank" rel="noopener">
       <div class="contact-icon">🌐</div>
-      <div class="contact-label">الموقع</div>
+      <div class="contact-label" id="contactCard3Label">الموقع</div>
       <div class="contact-value">www.carzivo.com</div>
     </a>
   </div>
@@ -850,7 +1001,7 @@
 <!-- ════════════ FOOTER ════════════ -->
 <footer>
   <img src="images/logo.png" alt="Carzivo" style="height:36px;width:auto;opacity:.9">
-  <div class="footer-copy">© 2026 Carzivo — جميع الحقوق محفوظة</div>
+  <div class="footer-copy" id="footerCopy">© 2026 Carzivo — جميع الحقوق محفوظة</div>
   <div style="display:flex;gap:.8rem">
     <a href="https://www.facebook.com/share/1BronaD3Kq/" target="_blank" style="color:rgba(255,255,255,0.5);transition:color .2s" onmouseover="this.style.color='#1877f2'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -868,22 +1019,449 @@
 </footer>
 
 <!-- ════════════ WHATSAPP FLOAT ════════════ -->
-<a class="wa-float" href="https://wa.me/905347652054" target="_blank" rel="noopener" title="تواصل عبر واتساب">
+<a class="wa-float" id="waFloat" href="https://wa.me/905347652054" target="_blank" rel="noopener" title="تواصل عبر واتساب">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
   </svg>
 </a>
 
 <script>
+  const translations = {
+    ar: {
+      dir: 'rtl',
+      pageTitle: 'Carzivo – كل خدمات سيارتك في مكان واحد',
+      metaDescription: 'Carzivo – كل خدمات سيارتك في مكان واحد. نبدأ الإطلاق في الموصل ثم نتوسع داخل العراق وبعدها إلى الدول العربية وتركيا.',
+      ogTitle: 'Carzivo – خدمات السيارات',
+      ogDescription: 'ابدأ من الموصل مع Carzivo ثم تابع توسعنا إلى باقي العراق والمنطقة.',
+      navServices: 'الخدمات',
+      navFeatures: 'المميزات',
+      navCoverage: 'التغطية',
+      navContact: 'تواصل معنا',
+      heroBadge: 'التطبيق قريباً على Google Play',
+      heroTitle: 'كل خدمات<br>سيارتك في<br><span class="highlight">مكان واحد</span>',
+      heroSubtitle: 'ابدأ رحلتك مع Carzivo في الموصل أولاً، ثم قريباً في باقي المدن العراقية — كرين، نقل، ورش، وقطع غيار في تطبيق واحد.',
+      heroDownloadBtn: '⬇️ حمّل التطبيق',
+      heroContactBtn: '📞 تواصل معنا',
+      heroStat1: 'خدمات متكاملة',
+      heroStat2: 'إطلاق يبدأ من الموصل',
+      heroStat3: 'خطة توسع مرحلية',
+      servicesLabel: 'خدماتنا',
+      servicesTitle: 'كل ما تحتاجه لسيارتك',
+      servicesSubtitle: 'خدمات عملية تبدأ من حاجة المستخدم اليومية وتكبر معنا من الموصل إلى باقي المدن.',
+      service1Title: 'كرين (رافعة)',
+      service1Desc: 'إذا تعطلت سيارتك، اطلب كرين بسرعة وتابع وصوله مباشرة من التطبيق.',
+      service2Title: 'نقل البضائع',
+      service2Desc: 'نقل آمن وسريع للبضائع مع مزودين موثوقين وتتبع واضح للشحنة.',
+      service3Title: 'ورش الصيانة',
+      service3Desc: 'احجز مع الورش المناسبة، قارن الخدمات، وتابع الإصلاح بسهولة.',
+      service4Title: 'قطع الغيار',
+      service4Desc: 'اطلب قطع الغيار المناسبة وقارن الخيارات حتى تصلك بسرعة.',
+      featuresLabel: 'لماذا Carzivo؟',
+      featuresTitle: 'مميزات تجعلنا مختلفين',
+      featuresSubtitle: 'نبني تجربة مناسبة للإطلاق المحلي في الموصل ثم التوسع بثقة داخل العراق.',
+      feature1Title: 'تتبع مباشر',
+      feature1Desc: 'تابع المركبة أو المندوب لحظة بلحظة من داخل التطبيق.',
+      feature2Title: 'سرعة في التنفيذ',
+      feature2Desc: 'يصل طلبك إلى أقرب مزود خدمة لتسريع الاستجابة.',
+      feature3Title: 'مزودون موثوقون',
+      feature3Desc: 'نعتمد على مزودين تم التحقق منهم وتقييمهم من المستخدمين.',
+      feature4Title: 'تواصل مباشر',
+      feature4Desc: 'تواصل مع مزود الخدمة من داخل التطبيق بسهولة.',
+      feature5Title: 'سهولة الاستخدام',
+      feature5Desc: 'واجهة واضحة وسهلة لكل مستخدم من أول مرة.',
+      feature6Title: 'إشعارات فورية',
+      feature6Desc: 'تنبيهات لحظية لحالة الطلب والمندوب والخدمة.',
+      feature7Title: 'توصيل قطع الغيار',
+      feature7Desc: 'قطع الغيار تصل عبر المندوبين مباشرة إلى الورش أو إلى باب العميل.',
+      courierLabel: 'خدمة حصرية',
+      courierTitle: 'تتبّع مندوب Carzivo الخاص بك لحظة بلحظة!',
+      courierSubtitle: 'خدمة مندوبين حصرية لتوصيل قطع الغيار، مع تجربة مهيأة للانطلاق المحلي ثم التوسع.',
+      courierFeature1Title: 'قطع غيارك واصلة',
+      courierFeature1Desc: 'المندوب يستلم القطعة من الوكيل ويوصلها مباشرة إلى الورشة أو العميل.',
+      courierFeature2Title: 'تكسي الورشة متاح',
+      courierFeature2Desc: 'احجز تكسي ينقلك من وإلى الورشة بسهولة وأمان.',
+      courierFeature3Title: 'تتبع مباشر على الخريطة',
+      courierFeature3Desc: 'شاهد موقع المندوب لحظة بلحظة حتى يصل إليك.',
+      appPreviewLabel: 'التطبيق',
+      appPreviewTitle: 'واجهة بسيطة تدعم التوسع',
+      appPreviewSubtitle: 'نبدأ بالعربية للسوق العراقي مع تجهيز الموقع لعدة لغات استعداداً للتوسع.',
+      coverageLabel: 'التغطية',
+      coverageTitle: 'نبدأ من الموصل ثم نتوسع',
+      coverageSubtitle: 'إطلاقنا يبدأ في الموصل، ثم نتوسع إلى باقي المدن العراقية، وبعدها إلى الدول العربية وتركيا ثم إلى الأسواق العالمية.',
+      coverageTag1: '🏙️ الموصل أولاً',
+      coverageTag2: '🏙️ بغداد',
+      coverageTag3: '🏙️ أربيل',
+      coverageTag4: '🏙️ البصرة',
+      coverageTag5: '🏙️ كركوك',
+      coverageTag6: '🏙️ السليمانية',
+      coverageTag7: '🌍 الدول العربية وتركيا لاحقاً',
+      roadmapLabel: 'خارطة الإطلاق',
+      roadmapTitle: 'نمو مرحلي ومدروس',
+      roadmapSubtitle: 'نبدأ بسوق واضح ونثبت الجودة التشغيلية، ثم نتوسع خطوة بخطوة إلى أسواق أكبر.',
+      roadmapStep1: 'المرحلة 1',
+      roadmapCard1Title: 'الموصل',
+      roadmapCard1Desc: 'إطلاق أولي مركز لاختبار التجربة، بناء الثقة، وضبط العمليات اليومية.',
+      roadmapStep2: 'المرحلة 2',
+      roadmapCard2Title: 'باقي مدن العراق',
+      roadmapCard2Desc: 'توسيع الشبكة إلى المدن الرئيسية بعد تثبيت نموذج التشغيل في الموصل.',
+      roadmapStep3: 'المرحلة 3',
+      roadmapCard3Title: 'الدول العربية وتركيا',
+      roadmapCard3Desc: 'الاستفادة من الموقع متعدد اللغات للدخول الإقليمي بخدمات واضحة وقابلة للتوسع.',
+      roadmapStep4: 'المرحلة 4',
+      roadmapCard4Title: 'التوسع العالمي',
+      roadmapCard4Desc: 'بناء منصة سيارات وخدمات لوجستية قابلة للنمو في أسواق دولية متعددة.',
+      downloadTitle: 'حمّل Carzivo قريباً',
+      downloadSubtitle: 'نطلق أولاً في الموصل، ثم نتوسع في العراق. سجّل اهتمامك الآن وكن من أوائل المستخدمين.',
+      storeSub: 'قريباً على',
+      comingBadge: '🚀 الإطلاق قريب جداً',
+      contactLabel: 'تواصل',
+      contactTitle: 'تواصل معنا',
+      contactSubtitle: 'لديك سؤال أو تريد الانضمام كمزود خدمة؟ نحن هنا.',
+      contactCard1Label: 'واتساب',
+      contactCard2Label: 'البريد الإلكتروني',
+      contactCard3Label: 'الموقع',
+      footerCopy: '© 2026 Carzivo — جميع الحقوق محفوظة',
+      waTitle: 'تواصل عبر واتساب'
+    },
+    en: {
+      dir: 'ltr',
+      pageTitle: 'Carzivo – All Your Car Services in One Place',
+      metaDescription: 'Carzivo launches in Mosul first, then expands across Iraq, Arabic-speaking markets, Turkey, and beyond.',
+      ogTitle: 'Carzivo – Automotive Services',
+      ogDescription: 'Launching in Mosul first, then expanding across Iraq and the region.',
+      navServices: 'Services',
+      navFeatures: 'Features',
+      navCoverage: 'Coverage',
+      navContact: 'Contact Us',
+      heroBadge: 'Coming soon to Google Play',
+      heroTitle: 'All your car<br>services in<br><span class="highlight">one place</span>',
+      heroSubtitle: 'Carzivo starts in Mosul, then expands across Iraq — towing, cargo, workshops, and spare parts in one app.',
+      heroDownloadBtn: '⬇️ Get the app',
+      heroContactBtn: '📞 Contact us',
+      heroStat1: 'Integrated services',
+      heroStat2: 'Launching from Mosul',
+      heroStat3: 'Phased expansion plan',
+      servicesLabel: 'Our Services',
+      servicesTitle: 'Everything your car needs',
+      servicesSubtitle: 'Essential services for daily drivers, built to grow from Mosul to the rest of Iraq.',
+      service1Title: 'Towing',
+      service1Desc: 'Need help on the road? Request a tow truck fast and track arrival live.',
+      service2Title: 'Cargo Transport',
+      service2Desc: 'Reliable transport with trusted drivers and clear shipment visibility.',
+      service3Title: 'Workshops',
+      service3Desc: 'Book the right workshop, compare service options, and follow repairs easily.',
+      service4Title: 'Spare Parts',
+      service4Desc: 'Request the right parts, compare offers, and get them delivered quickly.',
+      featuresLabel: 'Why Carzivo?',
+      featuresTitle: 'Built to stand out',
+      featuresSubtitle: 'A trusted product for local launch in Mosul, ready to scale across Iraq.',
+      feature1Title: 'Live tracking',
+      feature1Desc: 'Track the vehicle or courier in real time inside the app.',
+      feature2Title: 'Fast fulfillment',
+      feature2Desc: 'Your request reaches the nearest provider for faster action.',
+      feature3Title: 'Trusted providers',
+      feature3Desc: 'Drivers, workshops, and providers go through verification and ratings.',
+      feature4Title: 'Direct communication',
+      feature4Desc: 'Chat with the service provider directly inside the app.',
+      feature5Title: 'Easy to use',
+      feature5Desc: 'A simple interface designed to work smoothly from day one.',
+      feature6Title: 'Instant alerts',
+      feature6Desc: 'Get timely updates for request status, courier progress, and arrivals.',
+      feature7Title: 'Spare parts delivery',
+      feature7Desc: 'Parts can be delivered directly to workshops or to the customer door.',
+      courierLabel: 'Exclusive service',
+      courierTitle: 'Track your Carzivo courier in real time!',
+      courierSubtitle: 'Exclusive courier support for spare parts delivery, designed for local launch and regional growth.',
+      courierFeature1Title: 'Your spare part is on the way',
+      courierFeature1Desc: 'The courier picks up the part from the agent and delivers it directly.',
+      courierFeature2Title: 'Workshop taxi available',
+      courierFeature2Desc: 'Book a ride to and from the workshop with comfort and safety.',
+      courierFeature3Title: 'Live map tracking',
+      courierFeature3Desc: 'See the courier location on the map until arrival.',
+      appPreviewLabel: 'App',
+      appPreviewTitle: 'A simple interface ready to scale',
+      appPreviewSubtitle: 'Starting with Arabic for Iraq, while the website is now prepared for multilingual expansion.',
+      coverageLabel: 'Coverage',
+      coverageTitle: 'Starting in Mosul, then expanding',
+      coverageSubtitle: 'We launch in Mosul first, then grow across Iraqi cities, followed by Arabic-speaking countries, Turkey, and eventually global markets.',
+      coverageTag1: '🏙️ Mosul first',
+      coverageTag2: '🏙️ Baghdad',
+      coverageTag3: '🏙️ Erbil',
+      coverageTag4: '🏙️ Basra',
+      coverageTag5: '🏙️ Kirkuk',
+      coverageTag6: '🏙️ Sulaymaniyah',
+      coverageTag7: '🌍 Arab countries and Turkey next',
+      roadmapLabel: 'Launch Roadmap',
+      roadmapTitle: 'A phased, disciplined growth plan',
+      roadmapSubtitle: 'We start with a focused market, prove operational quality, then expand step by step into larger opportunities.',
+      roadmapStep1: 'Phase 1',
+      roadmapCard1Title: 'Mosul',
+      roadmapCard1Desc: 'A focused launch to validate the user journey, build trust, and stabilize daily operations.',
+      roadmapStep2: 'Phase 2',
+      roadmapCard2Title: 'The rest of Iraq',
+      roadmapCard2Desc: 'Expand into major Iraqi cities once the Mosul operating model is proven.',
+      roadmapStep3: 'Phase 3',
+      roadmapCard3Title: 'Arab markets and Turkey',
+      roadmapCard3Desc: 'Use the multilingual foundation to enter regional markets with a clearer, scalable offer.',
+      roadmapStep4: 'Phase 4',
+      roadmapCard4Title: 'Global expansion',
+      roadmapCard4Desc: 'Grow into a scalable mobility and automotive services platform for multiple international markets.',
+      downloadTitle: 'Get Carzivo soon',
+      downloadSubtitle: 'Mosul comes first, then the rest of Iraq. Register your interest now and be among the first users.',
+      storeSub: 'Coming soon on',
+      comingBadge: '🚀 Launching very soon',
+      contactLabel: 'Contact',
+      contactTitle: 'Get in touch',
+      contactSubtitle: 'Have a question or want to join as a service provider? We are here.',
+      contactCard1Label: 'WhatsApp',
+      contactCard2Label: 'Email',
+      contactCard3Label: 'Website',
+      footerCopy: '© 2026 Carzivo — All rights reserved',
+      waTitle: 'Contact us on WhatsApp'
+    },
+    tr: {
+      dir: 'ltr',
+      pageTitle: 'Carzivo – Tüm Araç Hizmetlerin Tek Yerde',
+      metaDescription: 'Carzivo önce Musul’da başlıyor, ardından Irak geneline, Arap ülkelerine, Türkiye’ye ve sonrasında dünyaya açılıyor.',
+      ogTitle: 'Carzivo – Araç Hizmetleri',
+      ogDescription: 'Önce Musul’da başlıyoruz, sonra Irak ve bölge geneline yayılıyoruz.',
+      navServices: 'Hizmetler',
+      navFeatures: 'Özellikler',
+      navCoverage: 'Kapsama',
+      navContact: 'Bize Ulaşın',
+      heroBadge: 'Yakında Google Play’de',
+      heroTitle: 'Aracınız için<br>tüm hizmetler<br><span class="highlight">tek yerde</span>',
+      heroSubtitle: 'Carzivo önce Musul’da başlıyor, sonra Irak geneline yayılıyor — çekici, yük taşıma, servisler ve yedek parçalar tek uygulamada.',
+      heroDownloadBtn: '⬇️ Uygulamayı indir',
+      heroContactBtn: '📞 İletişime geçin',
+      heroStat1: 'Entegre hizmetler',
+      heroStat2: 'Çıkış noktası Musul',
+      heroStat3: 'Aşamalı büyüme planı',
+      servicesLabel: 'Hizmetlerimiz',
+      servicesTitle: 'Aracınızın ihtiyacı olan her şey',
+      servicesSubtitle: 'Günlük ihtiyaçlardan başlayan, Musul’dan Irak’ın geri kalanına büyüyen pratik hizmetler.',
+      service1Title: 'Çekici',
+      service1Desc: 'Yolda mı kaldınız? Hızlıca çekici çağırın ve gelişini canlı takip edin.',
+      service2Title: 'Yük Taşıma',
+      service2Desc: 'Güvenilir sürücülerle hızlı ve güvenli taşıma.',
+      service3Title: 'Servis Atölyeleri',
+      service3Desc: 'Doğru servisi bulun, seçenekleri karşılaştırın ve süreci kolayca takip edin.',
+      service4Title: 'Yedek Parça',
+      service4Desc: 'Doğru parçayı isteyin, teklifleri karşılaştırın ve hızlı teslim alın.',
+      featuresLabel: 'Neden Carzivo?',
+      featuresTitle: 'Fark yaratan özellikler',
+      featuresSubtitle: 'Musul’daki yerel başlangıç için güvenilir, Irak genelinde büyümeye hazır.',
+      feature1Title: 'Canlı takip',
+      feature1Desc: 'Aracı veya kuryeyi uygulama içinde anlık takip edin.',
+      feature2Title: 'Hızlı hizmet',
+      feature2Desc: 'Talebiniz en yakın hizmet sağlayıcıya ulaşır.',
+      feature3Title: 'Güvenilir sağlayıcılar',
+      feature3Desc: 'Sürücüler ve atölyeler doğrulama ve değerlendirme sürecinden geçer.',
+      feature4Title: 'Doğrudan iletişim',
+      feature4Desc: 'Hizmet sağlayıcıyla uygulama içinden doğrudan iletişim kurun.',
+      feature5Title: 'Kolay kullanım',
+      feature5Desc: 'İlk günden itibaren rahat kullanım için sade arayüz.',
+      feature6Title: 'Anlık bildirimler',
+      feature6Desc: 'Talep durumu ve teslimat adımları için zamanında bildirim alın.',
+      feature7Title: 'Yedek parça teslimatı',
+      feature7Desc: 'Parçalar atölyeye veya müşterinin kapısına kadar ulaştırılır.',
+      courierLabel: 'Özel hizmet',
+      courierTitle: 'Carzivo kuryenizi anlık takip edin!',
+      courierSubtitle: 'Yedek parça teslimatı için özel kurye deneyimi; yerel başlangıç ve bölgesel büyüme için hazır.',
+      courierFeature1Title: 'Parçanız yolda',
+      courierFeature1Desc: 'Kurye parçayı satıcıdan alır ve doğrudan teslim eder.',
+      courierFeature2Title: 'Servis taksisi mevcut',
+      courierFeature2Desc: 'Servise gidiş ve dönüş için kolayca araç ayarlayın.',
+      courierFeature3Title: 'Haritada canlı takip',
+      courierFeature3Desc: 'Kurye size ulaşana kadar konumu haritada görün.',
+      appPreviewLabel: 'Uygulama',
+      appPreviewTitle: 'Ölçeklenmeye hazır sade arayüz',
+      appPreviewSubtitle: 'Irak pazarı için Arapça ile başlıyor, web ise çok dilli büyümeye hazır hale geliyor.',
+      coverageLabel: 'Kapsama',
+      coverageTitle: 'Musul’dan başlayıp genişliyoruz',
+      coverageSubtitle: 'Önce Musul’da başlıyor, sonra Irak şehirlerine, ardından Arap ülkelerine, Türkiye’ye ve küresel pazarlara açılıyoruz.',
+      coverageTag1: '🏙️ Önce Musul',
+      coverageTag2: '🏙️ Bağdat',
+      coverageTag3: '🏙️ Erbil',
+      coverageTag4: '🏙️ Basra',
+      coverageTag5: '🏙️ Kerkük',
+      coverageTag6: '🏙️ Süleymaniye',
+      coverageTag7: '🌍 Sonra Arap ülkeleri ve Türkiye',
+      roadmapLabel: 'Lansman Yol Haritası',
+      roadmapTitle: 'Aşamalı ve kontrollü büyüme',
+      roadmapSubtitle: 'Önce net bir pazarda başlıyor, operasyon kalitesini kanıtlıyor, ardından daha büyük pazarlara adım adım açılıyoruz.',
+      roadmapStep1: 'Aşama 1',
+      roadmapCard1Title: 'Musul',
+      roadmapCard1Desc: 'Deneyimi doğrulamak, güven oluşturmak ve günlük operasyonları oturtmak için odaklı ilk lansman.',
+      roadmapStep2: 'Aşama 2',
+      roadmapCard2Title: 'Irak’ın diğer şehirleri',
+      roadmapCard2Desc: 'Musul modeli kanıtlandıktan sonra büyük Irak şehirlerine genişleme.',
+      roadmapStep3: 'Aşama 3',
+      roadmapCard3Title: 'Arap ülkeleri ve Türkiye',
+      roadmapCard3Desc: 'Çok dilli temel üzerinden bölgesel pazarlara daha net ve ölçeklenebilir bir yapıyla giriş.',
+      roadmapStep4: 'Aşama 4',
+      roadmapCard4Title: 'Küresel büyüme',
+      roadmapCard4Desc: 'Birden çok uluslararası pazara uygun ölçeklenebilir araç ve mobilite platformu.',
+      downloadTitle: 'Carzivo çok yakında',
+      downloadSubtitle: 'Önce Musul, sonra Irak geneli. İlginizi şimdi bırakın ve ilk kullanıcılar arasında yer alın.',
+      storeSub: 'Yakında',
+      comingBadge: '🚀 Lansman çok yakında',
+      contactLabel: 'İletişim',
+      contactTitle: 'Bizimle iletişime geçin',
+      contactSubtitle: 'Sorunuz mu var veya hizmet sağlayıcı olarak katılmak mı istiyorsunuz? Buradayız.',
+      contactCard1Label: 'WhatsApp',
+      contactCard2Label: 'E-posta',
+      contactCard3Label: 'Web sitesi',
+      footerCopy: '© 2026 Carzivo — Tüm hakları saklıdır',
+      waTitle: 'WhatsApp ile iletişim kurun'
+    },
+    ckb: {
+      dir: 'rtl',
+      pageTitle: 'Carzivo – هەموو خزمەتگوزارییەکانی ئۆتۆمبێلەکەت لە یەک شوێن',
+      metaDescription: 'Carzivo سەرەتا لە مووسڵ دەست پێ دەکات، دواتر بۆ شارەکانی عێراق، وڵاتانی عەرەبی، تورکیا و پاشان بۆ جیهان فراوان دەبێتەوە.',
+      ogTitle: 'Carzivo – خزمەتگوزارییەکانی ئۆتۆمبێل',
+      ogDescription: 'دەستپێکردن لە مووسڵ، پاشان فراوانبوونەوە بۆ عێراق و ناوچەکە.',
+      navServices: 'خزمەتگوزارییەکان',
+      navFeatures: 'تایبەتمەندییەکان',
+      navCoverage: 'داپۆشین',
+      navContact: 'پەیوەندیمان پێوە بکە',
+      heroBadge: 'بەم زووانە لە Google Play',
+      heroTitle: 'هەموو خزمەتگوزارییەکانی<br>ئۆتۆمبێلەکەت لە<br><span class="highlight">یەک شوێن</span>',
+      heroSubtitle: 'Carzivo سەرەتا لە مووسڵ دەست پێ دەکات، پاشان بۆ هەموو عێراق فراوان دەبێتەوە — کرێن، گواستنەوە، وۆرکشۆپ و پارچەی یەدەک لە یەک ئەپدا.',
+      heroDownloadBtn: '⬇️ ئەپەکە دابەزێنە',
+      heroContactBtn: '📞 پەیوەندیمان پێوە بکە',
+      heroStat1: 'خزمەتگوزاریی یەکگرتوو',
+      heroStat2: 'دەستپێکردن لە مووسڵ',
+      heroStat3: 'پلانی فراوانبوونەوە',
+      servicesLabel: 'خزمەتگوزارییەکانمان',
+      servicesTitle: 'هەموو ئەوەی ئۆتۆمبێلەکەت پێویستییەتی',
+      servicesSubtitle: 'خزمەتگوزارییەکی کاریگەر کە لە مووسڵ دەست پێ دەکات و بۆ شارەکانی دیکەی عێراق گەشە دەکات.',
+      service1Title: 'کرێن',
+      service1Desc: 'ئەگەر ئۆتۆمبێلەکەت وەستا، بە خێرایی کرێن داوا بکە و گەیشتنی ببینە.',
+      service2Title: 'گواستنەوەی بار',
+      service2Desc: 'گواستنەوەی خێرا و پارێزراو لەگەڵ شۆفێرە متمانەپێکراوەکان.',
+      service3Title: 'وۆرکشۆپەکان',
+      service3Desc: 'وۆرکشۆپی گونجاو هەڵبژێرە و خزمەتگوزارییەکان بە ئاسانی بەراورد بکە.',
+      service4Title: 'پارچەی یەدەک',
+      service4Desc: 'پارچەی پێویست داوا بکە، هەڵبژاردەکان بەراورد بکە و بە خێرایی وەریبگرە.',
+      featuresLabel: 'بۆچی Carzivo؟',
+      featuresTitle: 'تایبەتمەندییەکان کە جیاوازمان دەکەن',
+      featuresSubtitle: 'بۆ دەستپێکردنی ناوخۆیی لە مووسڵ درووست کراوە و ئامادەی گەشەکردنە لە سەرانسەری عێراق.',
+      feature1Title: 'شوێنکەوتنی ڕاستەوخۆ',
+      feature1Desc: 'شوێنی ئۆتۆمبێل یان نێردراوەکە لە ناو ئەپەکەدا بەدوادا بچۆ.',
+      feature2Title: 'جێبەجێکردنی خێرا',
+      feature2Desc: 'داواکارییەکەت بۆ نزیکترین دابینکەر دەنێردرێت.',
+      feature3Title: 'دابینکەرە متمانەپێکراوەکان',
+      feature3Desc: 'شۆفێر و وۆرکشۆپەکان پشکنین و هەڵسەنگاندنیان بۆ کراوە.',
+      feature4Title: 'پەیوەندیی ڕاستەوخۆ',
+      feature4Desc: 'لە ناو ئەپەکەدا ڕاستەوخۆ لەگەڵ دابینکەر قسە بکە.',
+      feature5Title: 'بەکارهێنانی ئاسان',
+      feature5Desc: 'ڕووکارێکی سادە بۆ بەکارهێنانی ئاسان لە یەکەم ڕۆژەوە.',
+      feature6Title: 'ئاگادارکردنەوەی خێرا',
+      feature6Desc: 'ئاگادارکردنەوەی کاتی بۆ دۆخی داواکاری و گەیشتن و هەنگاوەکان.',
+      feature7Title: 'گەیاندنی پارچەی یەدەک',
+      feature7Desc: 'پارچەکان ڕاستەوخۆ بۆ وۆرکشۆپ یان دەرگای کڕیار دەگوازرێنەوە.',
+      courierLabel: 'خزمەتگوزاریی تایبەت',
+      courierTitle: 'نێردراوی Carzivo ـەکەت بە شێوەی ڕاستەوخۆ بەدوادا بچۆ!',
+      courierSubtitle: 'خزمەتگوزاریی نێردراوی تایبەت بۆ گەیاندنی پارچەی یەدەک، ئامادە بۆ دەستپێکردنی ناوخۆیی و گەشەی ناوچەیی.',
+      courierFeature1Title: 'پارچەکەت لە ڕێگایە',
+      courierFeature1Desc: 'نێردراوەکە پارچەکە لە وەکیلەوە وەردەگرێت و ڕاستەوخۆ دەیگەیەنێت.',
+      courierFeature2Title: 'تەکسیی وۆرکشۆپ بەردەستە',
+      courierFeature2Desc: 'بۆ چوون و هاتن بۆ وۆرکشۆپ بە ئاسانی تەکسی داوا بکە.',
+      courierFeature3Title: 'شوێنکەوتن لەسەر نەخشە',
+      courierFeature3Desc: 'شوێنی نێردراوەکە ببینە هەتا پێت دەگات.',
+      appPreviewLabel: 'ئەپ',
+      appPreviewTitle: 'ڕووکارێکی سادە و ئامادە بۆ گەشە',
+      appPreviewSubtitle: 'بۆ بازاڕی عێراق بە عەرەبی دەست پێ دەکات، بەڵام ماڵپەڕەکە ئێستا بۆ چەند زمان ئامادە کراوە.',
+      coverageLabel: 'داپۆشین',
+      coverageTitle: 'لە مووسڵ دەست پێ دەکەین و پاشان فراوان دەبینەوە',
+      coverageSubtitle: 'دەستپێکردنمان لە مووسڵە، پاشان بۆ شارەکانی عێراق، دوای ئەوە بۆ وڵاتانی عەرەبی و تورکیا و لە دواتر بۆ بازاڕی جیهانی.',
+      coverageTag1: '🏙️ یەکەم مووسڵ',
+      coverageTag2: '🏙️ بەغدا',
+      coverageTag3: '🏙️ هەولێر',
+      coverageTag4: '🏙️ بەسرە',
+      coverageTag5: '🏙️ کەرکووک',
+      coverageTag6: '🏙️ سلێمانی',
+      coverageTag7: '🌍 دواتر وڵاتانی عەرەبی و تورکیا',
+      roadmapLabel: 'ڕێگای دەستپێکردن',
+      roadmapTitle: 'گەشەی قۆناغ بە قۆناغ و بە پلاندانان',
+      roadmapSubtitle: 'سەرەتا لە بازاڕێکی دیاریکراو دەست پێ دەکەین، کوالێتی کارکردن دەسەلمێنین، پاشان هەنگاو بە هەنگاو بۆ بازاڕی گەورەتر دەچین.',
+      roadmapStep1: 'قۆناغی 1',
+      roadmapCard1Title: 'مووسڵ',
+      roadmapCard1Desc: 'دەستپێکردنێکی سەرنجڕاکێش بۆ تاقیکردنەوەی ئەزموون، دروستکردنی متمانە و جێگیرکردنی کارکردنی ڕۆژانە.',
+      roadmapStep2: 'قۆناغی 2',
+      roadmapCard2Title: 'شارەکانی دیکەی عێراق',
+      roadmapCard2Desc: 'فراوانبوونەوە بۆ شارە سەرەکییەکان دوای ئەوەی مۆدێلی مووسڵ سەرکەوتوو دەبێت.',
+      roadmapStep3: 'قۆناغی 3',
+      roadmapCard3Title: 'وڵاتانی عەرەبی و تورکیا',
+      roadmapCard3Desc: 'بە سوودوەرگرتن لە بنەمای فرەزمان، دەچینە ناو بازاڕی ناوچەیی بە پێشکەشکردنێکی ڕوون و گەشەپێدراو.',
+      roadmapStep4: 'قۆناغی 4',
+      roadmapCard4Title: 'فراوانبوونەوەی جیهانی',
+      roadmapCard4Desc: 'دروستکردنی پلاتفۆرمێکی خزمەتگوزاری ئۆتۆمبێل و مۆبیلیتی کە بۆ چەندین بازاڕی نێودەوڵەتی گەشە بکات.',
+      downloadTitle: 'Carzivo بەم زووانە دێت',
+      downloadSubtitle: 'یەکەم لە مووسڵ، پاشان لە سەرانسەری عێراق. ئێستا ناوت تۆمار بکە و لە یەکەم بەکارهێنەراندا بە.',
+      storeSub: 'بەم زووانە لە',
+      comingBadge: '🚀 دەستپێکردن زۆر نزیکە',
+      contactLabel: 'پەیوەندی',
+      contactTitle: 'پەیوەندیمان پێوە بکە',
+      contactSubtitle: 'پرسیارت هەیە یان دەتەوێت وەک دابینکەر بەشداری بکەیت؟ لێرەین.',
+      contactCard1Label: 'WhatsApp',
+      contactCard2Label: 'ئیمەیڵ',
+      contactCard3Label: 'ماڵپەڕ',
+      footerCopy: '© 2026 Carzivo — هەموو مافەکان پارێزراون',
+      waTitle: 'لە ڕێی WhatsApp ـەوە پەیوەندی بکە'
+    }
+  };
+
+  function applyLanguage(lang) {
+    const locale = translations[lang] || translations.ar;
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir = locale.dir;
+    document.body.classList.toggle('ltr', locale.dir === 'ltr');
+    document.title = locale.pageTitle;
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (metaDescription) metaDescription.setAttribute('content', locale.metaDescription);
+    if (ogTitle) ogTitle.setAttribute('content', locale.ogTitle);
+    if (ogDescription) ogDescription.setAttribute('content', locale.ogDescription);
+
+    Object.keys(locale).forEach(function(key) {
+      if (['dir', 'pageTitle', 'metaDescription', 'ogTitle', 'ogDescription', 'waTitle'].includes(key)) return;
+      const el = document.getElementById(key);
+      if (!el) return;
+      if (locale[key].includes('<br') || locale[key].includes('<span')) {
+        el.innerHTML = locale[key];
+      } else {
+        el.textContent = locale[key];
+      }
+    });
+
+    const waFloat = document.getElementById('waFloat');
+    if (waFloat) waFloat.setAttribute('title', locale.waTitle);
+
+    const switcher = document.getElementById('languageSwitcher');
+    if (switcher && switcher.value !== lang) switcher.value = lang;
+    localStorage.setItem('carzivo-language', lang);
+  }
+
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
   }
-  // Close nav when clicking a link on mobile
+
   document.querySelectorAll('#navLinks a').forEach(function(link) {
     link.addEventListener('click', function() {
       document.getElementById('navLinks').classList.remove('open');
     });
   });
+
+  document.getElementById('languageSwitcher').addEventListener('change', function(event) {
+    applyLanguage(event.target.value);
+  });
+
+  applyLanguage(localStorage.getItem('carzivo-language') || 'ar');
 </script>
 </body>
 </html>
