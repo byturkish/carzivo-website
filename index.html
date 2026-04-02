@@ -39,6 +39,14 @@
       font-family: 'Noto Sans Arabic', 'Tajawal', sans-serif;
       line-height: 1.9;
     }
+    body.lang-ckb .hero-content {
+      max-width: 600px;
+    }
+    body.lang-ckb .nav-links a,
+    body.lang-ckb .nav-cta,
+    body.lang-ckb .lang-switcher {
+      font-weight: 700;
+    }
     body.ltr { direction: ltr; text-align: left; }
     body.ltr .hero-content,
     body.ltr .coverage-text,
@@ -210,11 +218,13 @@
       font-size: clamp(2.05rem, 4.1vw, 3.15rem);
       line-height: 1.45;
       max-width: 620px;
+      margin-bottom: 1rem;
     }
     body.lang-ckb .hero-subtitle {
       font-size: 1.12rem;
       max-width: 620px;
       color: rgba(255,255,255,0.78);
+      margin-bottom: 2rem;
     }
     body.lang-ckb .section-title {
       line-height: 1.45;
@@ -1471,6 +1481,8 @@
     const html = document.documentElement;
     html.lang = lang;
     html.dir = locale.dir;
+    document.body.classList.remove('lang-ar', 'lang-en', 'lang-tr', 'lang-ckb');
+    document.body.classList.add('lang-' + lang);
     document.body.classList.toggle('ltr', locale.dir === 'ltr');
     document.title = locale.pageTitle;
 
