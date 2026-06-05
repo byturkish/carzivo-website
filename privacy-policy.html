@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="سياسة الخصوصية لتطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، وقطع الغيار.">
+    <meta property="og:title" content="Carzivo | سياسة الخصوصية">
+    <meta property="og:description" content="تعرف على كيفية جمع واستخدام وحماية بياناتك داخل تطبيق Carzivo.">
+    <meta property="og:url" content="https://www.carzivo.com/privacy-policy.html">
+    <title>Carzivo | سياسة الخصوصية</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #e07b2a;
+            --orange-dark: #c4661a;
+            --ink: #14213d;
+            --text: #253046;
+            --muted: #6b7280;
+            --line: #e5e7eb;
+            --bg: #fffaf5;
+            --white: #ffffff;
+            --card: #fffdfa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(180deg, #fff8ef 0%, #ffffff 220px);
+            color: var(--text);
+            line-height: 1.9;
+        }
+
+        a {
+            color: var(--orange-dark);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #111827 0%, #1e3a5f 45%, #111827 100%);
+            color: var(--white);
+            padding: 72px 20px 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: auto auto -120px -120px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(224, 123, 42, 0.35), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner,
+        .content,
+        .footer-inner {
+            width: min(980px, calc(100% - 32px));
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            text-decoration: none;
+            color: inherit;
+            font-weight: 800;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(224, 123, 42, 0.18);
+            border: 1px solid rgba(224, 123, 42, 0.35);
+            color: #ffd5af;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.25;
+        }
+
+        .hero p {
+            margin: 0;
+            max-width: 760px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.1rem;
+        }
+
+        .content {
+            margin-top: -22px;
+            padding-bottom: 48px;
+        }
+
+        .summary {
+            background: var(--card);
+            border: 1px solid rgba(224, 123, 42, 0.18);
+            box-shadow: 0 16px 40px rgba(17, 24, 39, 0.08);
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 20px;
+        }
+
+        .summary strong {
+            color: var(--ink);
+        }
+
+        .section {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 26px 24px;
+            margin: 18px 0;
+            box-shadow: 0 10px 30px rgba(17, 24, 39, 0.05);
+        }
+
+        .section h2 {
+            margin: 0 0 12px;
+            color: var(--ink);
+            font-size: 1.45rem;
+        }
+
+        .section p {
+            margin: 0 0 10px;
+        }
+
+        .section ul {
+            margin: 0;
+            padding-right: 20px;
+        }
+
+        .section li {
+            margin: 8px 0;
+        }
+
+        .notice {
+            background: var(--bg);
+            border-right: 4px solid var(--orange);
+            border-radius: 16px;
+            padding: 16px 18px;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .contact-card {
+            background: #fffaf5;
+            border: 1px solid rgba(224, 123, 42, 0.18);
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .contact-card .label {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+        }
+
+        .contact-card .value {
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 700;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(17, 24, 39, 0.12);
+            color: var(--ink);
+            background: var(--white);
+        }
+
+        footer {
+            padding: 26px 0 42px;
+            color: var(--muted);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 14px;
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding-top: 56px;
+            }
+
+            .section {
+                padding: 22px 18px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <a class="brand" href="/">
+                <img src="images/logo.png" alt="Carzivo logo">
+                <span>Carzivo</span>
+            </a>
+            <div class="badge">سياسة الخصوصية</div>
+            <h1>سياسة الخصوصية الخاصة بتطبيق Carzivo</h1>
+            <p>
+                توضح هذه الصفحة كيفية جمع واستخدام ومشاركة وحماية البيانات الشخصية عند استخدام تطبيق Carzivo وخدماته
+                المتعلقة بطلب الرافعة، الورش، النقل، قطع الغيار، التتبع، والدردشة داخل التطبيق.
+            </p>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="summary">
+            <strong>آخر تحديث:</strong> 5 يونيو 2026
+            <p>
+                باستخدامك تطبيق Carzivo فإنك توافق على هذه السياسة وعلى معالجة بياناتك بالقدر اللازم لتقديم الخدمات،
+                تحسين الأمان، تشغيل الخرائط والتواصل بين المستخدمين ومزودي الخدمة، والامتثال للمتطلبات القانونية
+                والتنظيمية.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>1. من نحن</h2>
+            <p>
+                Carzivo منصة رقمية لتسهيل الوصول إلى خدمات المركبات، مثل طلب الرافعة، طلب ورشة صيانة، طلب شاحنة نقل، طلب
+                قطع الغيار، تتبع الطلبات، والتواصل بين العميل ومزود الخدمة داخل التطبيق.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>2. البيانات التي قد نجمعها</h2>
+            <ul>
+                <li>بيانات الحساب الأساسية مثل الاسم، رقم الهاتف، البريد الإلكتروني، ونوع الحساب.</li>
+                <li>بيانات الموقع الجغرافي الحالية أو التقريبية عند استخدام خدمات تعتمد على الموقع مثل الرافعة، الورشة،
+                    النقل، أو التتبع.</li>
+                <li>بيانات المركبة أو الطلب مثل نوع الخدمة، موديل السيارة، تفاصيل العطل، موقع الانطلاق والوجهة، أو
+                    تفاصيل القطعة المطلوبة.</li>
+                <li>الصور أو الملفات التي ترفعها داخل التطبيق، مثل صور الأعطال، القطع، أو مستندات التحقق لبعض الأدوار.
+                </li>
+                <li>محتوى الرسائل داخل الدردشة والبيانات المرتبطة بالإشعارات والتواصل بين الأطراف.</li>
+                <li>بيانات تقنية مثل نوع الجهاز، نظام التشغيل، معرّفات الإشعارات، عناوين IP التقريبية، وسجلات الأعطال
+                    والتحليلات التشغيلية.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>3. كيف نستخدم البيانات</h2>
+            <ul>
+                <li>تشغيل الخدمات الأساسية وتنفيذ الطلبات وربط العميل بمزود الخدمة المناسب.</li>
+                <li>عرض مقدمي الخدمات القريبين جغرافيًا وإرسال الطلبات إلى النطاق الصحيح.</li>
+                <li>تمكين التتبع المباشر، تقدير المسافة والوقت، وتحديث حالة الطلب.</li>
+                <li>إرسال الإشعارات المتعلقة بالطلبات، الرسائل، العروض، وتغيرات الحالة.</li>
+                <li>حماية الحسابات ومنع الاحتيال وسوء الاستخدام وتحسين جودة الخدمة.</li>
+                <li>الوفاء بالالتزامات القانونية أو التنظيمية عند الحاجة.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>4. مشاركة البيانات</h2>
+            <p>قد نشارك بعض البيانات بالحد الأدنى اللازم لتقديم الخدمة، مثل:</p>
+            <ul>
+                <li>مشاركة بيانات الطلب والموقع ووسائل التواصل اللازمة مع مزود الخدمة المرتبط بطلبك.</li>
+                <li>مشاركة بيانات تقنية أو تشغيلية مع مزودي خدمات موثوقين مثل خدمات الخرائط، الإشعارات، التحليلات،
+                    والاستضافة.</li>
+                <li>الاستجابة للطلبات القانونية أو التنظيمية إذا كان ذلك مطلوبًا بموجب القانون.</li>
+            </ul>
+            <div class="notice">
+                نحن لا نبيع بياناتك الشخصية لأطراف خارجية لأغراض تسويقية مستقلة.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>5. خدمات الطرف الثالث</h2>
+            <p>
+                قد يعتمد التطبيق على خدمات طرف ثالث مثل Google Maps وFirebase وGoogle Sign-In وخدمات الإشعارات أو
+                التحليلات، وتخضع بعض المعالجة لسياسات الخصوصية الخاصة بتلك الخدمات بالإضافة إلى هذه السياسة.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>6. الموقع الجغرافي</h2>
+            <p>
+                يستخدم التطبيق بيانات الموقع لتحديد بلد ومنطقة الخدمة، عرض المزودين القريبين، احتساب المسار، وإتاحة
+                التتبع المباشر لبعض الخدمات. إذا عطّلت صلاحية الموقع فقد لا تعمل بعض مزايا التطبيق أو قد تعمل بشكل
+                محدود.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>7. الاحتفاظ بالبيانات</h2>
+            <p>
+                نحتفظ بالبيانات ما دام ذلك ضروريًا لتقديم الخدمة، تشغيل الحساب، حفظ السجل المرتبط بالطلبات والنزاعات،
+                متطلبات الأمان، أو الامتثال القانوني. قد تُحذف أو تُخفى بعض البيانات بعد انقضاء المدة التشغيلية أو
+                القانونية المناسبة.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>8. الأمان</h2>
+            <p>
+                نتخذ إجراءات معقولة لحماية البيانات من الوصول غير المصرح به أو الفقد أو سوء الاستخدام. ومع ذلك، لا توجد
+                وسيلة نقل أو تخزين إلكتروني تضمن أمانًا مطلقًا بنسبة 100%.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>9. حقوقك</h2>
+            <ul>
+                <li>طلب تحديث أو تصحيح بياناتك الأساسية إذا كانت غير دقيقة.</li>
+                <li>طلب حذف الحساب أو إيقافه، ما لم يكن الاحتفاظ ببعض البيانات مطلوبًا قانونيًا أو تشغيليًا.</li>
+                <li>الاعتراض على بعض أنواع المعالجة أو طلب تقييدها متى كان ذلك ممكنًا وفق الأنظمة المعمول بها.</li>
+            </ul>
+            <p>
+                لطلبات الخصوصية أو الحذف أو الاستفسارات، يمكنك التواصل معنا عبر وسائل الاتصال المذكورة أدناه.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>10. خصوصية الأطفال</h2>
+            <p>
+                التطبيق غير موجه للأطفال دون السن المسموح به قانونًا في بلد الاستخدام. إذا تبيّن لنا أنه تم جمع بيانات
+                من طفل بالمخالفة للقانون، فسنقوم باتخاذ الإجراءات المناسبة لحذفها أو تقييدها.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>11. التغييرات على هذه السياسة</h2>
+            <p>
+                قد نحدّث هذه السياسة من وقت لآخر. عند إجراء تحديثات جوهرية سننشر النسخة المحدثة على هذه الصفحة مع تاريخ
+                آخر تحديث، ويُعد استمرار استخدام التطبيق بعد التحديث موافقة على النسخة المحدثة.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>12. التواصل معنا</h2>
+            <p>إذا كان لديك أي سؤال بخصوص سياسة الخصوصية أو بياناتك الشخصية، يمكنك التواصل معنا عبر:</p>
+            <div class="contact-box">
+                <div class="contact-card">
+                    <div class="label">البريد الإلكتروني</div>
+                    <div class="value"><a href="mailto:info@carzivo.com">info@carzivo.com</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="label">واتساب</div>
+                    <div class="value"><a href="https://wa.me/905347652054" target="_blank" rel="noopener">+90 534 765
+                            2054</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="label">الموقع الرسمي</div>
+                    <div class="value"><a href="https://www.carzivo.com" target="_blank"
+                            rel="noopener">www.carzivo.com</a></div>
+                </div>
+            </div>
+            <div class="actions">
+                <a class="btn btn-primary" href="mailto:info@carzivo.com">تواصل عبر البريد</a>
+                <a class="btn btn-secondary" href="/">العودة إلى الموقع الرئيسي</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>© 2026 Carzivo — جميع الحقوق محفوظة</div>
+            <div><a href="/privacy-policy.html">سياسة الخصوصية</a></div>
+        </div>
+    </footer>
+</body>
+
+</html>
