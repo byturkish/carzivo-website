@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="سياسة الخصوصية لتطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، وقطع الغيار.">
+    <meta name="description" content="سياسة الخصوصية لتطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، وقطع الغيار.">
     <meta property="og:title" content="Carzivo | سياسة الخصوصية">
     <meta property="og:description" content="تعرف على كيفية جمع واستخدام وحماية بياناتك داخل تطبيق Carzivo.">
     <meta property="og:url" content="https://www.carzivo.com/privacy-policy.html">
@@ -199,8 +197,304 @@
             padding: 16px 18px;
         }
 
-        en: {
-            dir: 'ltr',
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .contact-card {
+            background: #fffaf5;
+            border: 1px solid rgba(224, 123, 42, 0.18);
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .contact-card .label {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin-bottom: 6px;
+        }
+
+        .contact-card .value {
+            font-weight: 700;
+            word-break: break-word;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 12px 18px;
+            font-weight: 700;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(17, 24, 39, 0.12);
+            color: var(--ink);
+            background: var(--white);
+        }
+
+        footer {
+            padding: 26px 0 42px;
+            color: var(--muted);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 14px;
+            border-top: 1px solid var(--line);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding-top: 22px;
+            }
+
+            .topbar {
+                align-items: stretch;
+            }
+
+            .lang-switcher {
+                width: 100%;
+            }
+
+            .section {
+                padding: 22px 18px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="topbar">
+                <a class="brand" href="/">
+                    <img src="images/logo.png" alt="Carzivo logo">
+                    <span>Carzivo</span>
+                </a>
+                <select class="lang-switcher" id="languageSwitcher" aria-label="Select language">
+                    <option value="ar">العربية</option>
+                    <option value="en">English</option>
+                    <option value="tr">Turkce</option>
+                </select>
+            </div>
+            <div class="badge" id="badge">سياسة الخصوصية</div>
+            <h1 id="heroTitle">سياسة الخصوصية الخاصة بتطبيق Carzivo</h1>
+            <p id="heroSubtitle">توضح هذه الصفحة كيفية جمع واستخدام ومشاركة وحماية البيانات الشخصية عند استخدام تطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، قطع الغيار، التتبع، والدردشة داخل التطبيق.</p>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="summary">
+            <strong id="updatedLabel">آخر تحديث:</strong> <span id="updatedDate">5 يونيو 2026</span>
+            <p id="summaryText">باستخدامك تطبيق Carzivo فإنك توافق على هذه السياسة وعلى معالجة بياناتك بالقدر اللازم لتقديم الخدمات، تحسين الأمان، تشغيل الخرائط والتواصل بين المستخدمين ومزودي الخدمة، والامتثال للمتطلبات القانونية والتنظيمية.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section1Title">1. من نحن</h2>
+            <p id="section1Text">Carzivo منصة رقمية لتسهيل الوصول إلى خدمات المركبات، مثل طلب الرافعة، طلب ورشة صيانة، طلب شاحنة نقل، طلب قطع الغيار، تتبع الطلبات، والتواصل بين العميل ومزود الخدمة داخل التطبيق.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section2Title">2. البيانات التي قد نجمعها</h2>
+            <ul>
+                <li id="section2Item1">بيانات الحساب الأساسية مثل الاسم، رقم الهاتف، البريد الإلكتروني، ونوع الحساب.</li>
+                <li id="section2Item2">بيانات الموقع الجغرافي الحالية أو التقريبية عند استخدام خدمات تعتمد على الموقع مثل الرافعة، الورشة، النقل، أو التتبع.</li>
+                <li id="section2Item3">بيانات المركبة أو الطلب مثل نوع الخدمة، موديل السيارة، تفاصيل العطل، موقع الانطلاق والوجهة، أو تفاصيل القطعة المطلوبة.</li>
+                <li id="section2Item4">الصور أو الملفات التي ترفعها داخل التطبيق، مثل صور الأعطال، القطع، أو مستندات التحقق لبعض الأدوار.</li>
+                <li id="section2Item5">محتوى الرسائل داخل الدردشة والبيانات المرتبطة بالإشعارات والتواصل بين الأطراف.</li>
+                <li id="section2Item6">بيانات تقنية مثل نوع الجهاز، نظام التشغيل، معرّفات الإشعارات، عناوين IP التقريبية، وسجلات الأعطال والتحليلات التشغيلية.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 id="section3Title">3. كيف نستخدم البيانات</h2>
+            <ul>
+                <li id="section3Item1">تشغيل الخدمات الأساسية وتنفيذ الطلبات وربط العميل بمزود الخدمة المناسب.</li>
+                <li id="section3Item2">عرض مقدمي الخدمات القريبين جغرافيًا وإرسال الطلبات إلى النطاق الصحيح.</li>
+                <li id="section3Item3">تمكين التتبع المباشر، تقدير المسافة والوقت، وتحديث حالة الطلب.</li>
+                <li id="section3Item4">إرسال الإشعارات المتعلقة بالطلبات، الرسائل، العروض، وتغيرات الحالة.</li>
+                <li id="section3Item5">حماية الحسابات ومنع الاحتيال وسوء الاستخدام وتحسين جودة الخدمة.</li>
+                <li id="section3Item6">الوفاء بالالتزامات القانونية أو التنظيمية عند الحاجة.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 id="section4Title">4. مشاركة البيانات</h2>
+            <p id="section4Text">قد نشارك بعض البيانات بالحد الأدنى اللازم لتقديم الخدمة، مثل:</p>
+            <ul>
+                <li id="section4Item1">مشاركة بيانات الطلب والموقع ووسائل التواصل اللازمة مع مزود الخدمة المرتبط بطلبك.</li>
+                <li id="section4Item2">مشاركة بيانات تقنية أو تشغيلية مع مزودي خدمات موثوقين مثل خدمات الخرائط، الإشعارات، التحليلات، والاستضافة.</li>
+                <li id="section4Item3">الاستجابة للطلبات القانونية أو التنظيمية إذا كان ذلك مطلوبًا بموجب القانون.</li>
+            </ul>
+            <div class="notice" id="section4Notice">نحن لا نبيع بياناتك الشخصية لأطراف خارجية لأغراض تسويقية مستقلة.</div>
+        </section>
+
+        <section class="section">
+            <h2 id="section5Title">5. خدمات الطرف الثالث</h2>
+            <p id="section5Text">قد يعتمد التطبيق على خدمات طرف ثالث مثل Google Maps وFirebase وGoogle Sign-In وخدمات الإشعارات أو التحليلات، وتخضع بعض المعالجة لسياسات الخصوصية الخاصة بتلك الخدمات بالإضافة إلى هذه السياسة.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section6Title">6. الموقع الجغرافي</h2>
+            <p id="section6Text">يستخدم التطبيق بيانات الموقع لتحديد بلد ومنطقة الخدمة، عرض المزودين القريبين، احتساب المسار، وإتاحة التتبع المباشر لبعض الخدمات. إذا عطّلت صلاحية الموقع فقد لا تعمل بعض مزايا التطبيق أو قد تعمل بشكل محدود.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section7Title">7. الاحتفاظ بالبيانات</h2>
+            <p id="section7Text">نحتفظ بالبيانات ما دام ذلك ضروريًا لتقديم الخدمة، تشغيل الحساب، حفظ السجل المرتبط بالطلبات والنزاعات، متطلبات الأمان، أو الامتثال القانوني. قد تُحذف أو تُخفى بعض البيانات بعد انقضاء المدة التشغيلية أو القانونية المناسبة.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section8Title">8. الأمان</h2>
+            <p id="section8Text">نتخذ إجراءات معقولة لحماية البيانات من الوصول غير المصرح به أو الفقد أو سوء الاستخدام. ومع ذلك، لا توجد وسيلة نقل أو تخزين إلكتروني تضمن أمانًا مطلقًا بنسبة 100%.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section9Title">9. حقوقك</h2>
+            <ul>
+                <li id="section9Item1">طلب تحديث أو تصحيح بياناتك الأساسية إذا كانت غير دقيقة.</li>
+                <li id="section9Item2">طلب حذف الحساب أو إيقافه، ما لم يكن الاحتفاظ ببعض البيانات مطلوبًا قانونيًا أو تشغيليًا.</li>
+                <li id="section9Item3">الاعتراض على بعض أنواع المعالجة أو طلب تقييدها متى كان ذلك ممكنًا وفق الأنظمة المعمول بها.</li>
+            </ul>
+            <p id="section9Text">لطلبات الخصوصية أو الحذف أو الاستفسارات، يمكنك التواصل معنا عبر وسائل الاتصال المذكورة أدناه.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section10Title">10. خصوصية الأطفال</h2>
+            <p id="section10Text">التطبيق غير موجه للأطفال دون السن المسموح به قانونًا في بلد الاستخدام. إذا تبيّن لنا أنه تم جمع بيانات من طفل بالمخالفة للقانون، فسنقوم باتخاذ الإجراءات المناسبة لحذفها أو تقييدها.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section11Title">11. التغييرات على هذه السياسة</h2>
+            <p id="section11Text">قد نحدّث هذه السياسة من وقت لآخر. عند إجراء تحديثات جوهرية سننشر النسخة المحدثة على هذه الصفحة مع تاريخ آخر تحديث، ويُعد استمرار استخدام التطبيق بعد التحديث موافقة على النسخة المحدثة.</p>
+        </section>
+
+        <section class="section">
+            <h2 id="section12Title">12. التواصل معنا</h2>
+            <p id="section12Text">إذا كان لديك أي سؤال بخصوص سياسة الخصوصية أو بياناتك الشخصية، يمكنك التواصل معنا عبر:</p>
+            <div class="contact-box">
+                <div class="contact-card">
+                    <div class="label" id="contactEmailLabel">البريد الإلكتروني</div>
+                    <div class="value"><a href="mailto:info@carzivo.com">info@carzivo.com</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="label" id="contactWhatsAppLabel">واتساب</div>
+                    <div class="value"><a href="https://wa.me/905347652054" target="_blank" rel="noopener">+90 534 765 2054</a></div>
+                </div>
+                <div class="contact-card">
+                    <div class="label" id="contactWebsiteLabel">الموقع الرسمي</div>
+                    <div class="value"><a href="https://www.carzivo.com" target="_blank" rel="noopener">www.carzivo.com</a></div>
+                </div>
+            </div>
+            <div class="actions">
+                <a class="btn btn-primary" href="mailto:info@carzivo.com" id="contactButton">تواصل عبر البريد</a>
+                <a class="btn btn-secondary" href="/" id="backButton">العودة إلى الموقع الرئيسي</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div id="footerCopy">© 2026 Carzivo — جميع الحقوق محفوظة</div>
+            <div><a href="/privacy-policy.html" id="footerPolicyLink">سياسة الخصوصية</a></div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                pageTitle: 'Carzivo | سياسة الخصوصية',
+                metaDescription: 'سياسة الخصوصية لتطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، وقطع الغيار.',
+                ogTitle: 'Carzivo | سياسة الخصوصية',
+                ogDescription: 'تعرف على كيفية جمع واستخدام وحماية بياناتك داخل تطبيق Carzivo.',
+                badge: 'سياسة الخصوصية',
+                heroTitle: 'سياسة الخصوصية الخاصة بتطبيق Carzivo',
+                heroSubtitle: 'توضح هذه الصفحة كيفية جمع واستخدام ومشاركة وحماية البيانات الشخصية عند استخدام تطبيق Carzivo وخدماته المتعلقة بطلب الرافعة، الورش، النقل، قطع الغيار، التتبع، والدردشة داخل التطبيق.',
+                updatedLabel: 'آخر تحديث:',
+                updatedDate: '5 يونيو 2026',
+                summaryText: 'باستخدامك تطبيق Carzivo فإنك توافق على هذه السياسة وعلى معالجة بياناتك بالقدر اللازم لتقديم الخدمات، تحسين الأمان، تشغيل الخرائط والتواصل بين المستخدمين ومزودي الخدمة، والامتثال للمتطلبات القانونية والتنظيمية.',
+                section1Title: '1. من نحن',
+                section1Text: 'Carzivo منصة رقمية لتسهيل الوصول إلى خدمات المركبات، مثل طلب الرافعة، طلب ورشة صيانة، طلب شاحنة نقل، طلب قطع الغيار، تتبع الطلبات، والتواصل بين العميل ومزود الخدمة داخل التطبيق.',
+                section2Title: '2. البيانات التي قد نجمعها',
+                section2Item1: 'بيانات الحساب الأساسية مثل الاسم، رقم الهاتف، البريد الإلكتروني، ونوع الحساب.',
+                section2Item2: 'بيانات الموقع الجغرافي الحالية أو التقريبية عند استخدام خدمات تعتمد على الموقع مثل الرافعة، الورشة، النقل، أو التتبع.',
+                section2Item3: 'بيانات المركبة أو الطلب مثل نوع الخدمة، موديل السيارة، تفاصيل العطل، موقع الانطلاق والوجهة، أو تفاصيل القطعة المطلوبة.',
+                section2Item4: 'الصور أو الملفات التي ترفعها داخل التطبيق، مثل صور الأعطال، القطع، أو مستندات التحقق لبعض الأدوار.',
+                section2Item5: 'محتوى الرسائل داخل الدردشة والبيانات المرتبطة بالإشعارات والتواصل بين الأطراف.',
+                section2Item6: 'بيانات تقنية مثل نوع الجهاز، نظام التشغيل، معرّفات الإشعارات، عناوين IP التقريبية، وسجلات الأعطال والتحليلات التشغيلية.',
+                section3Title: '3. كيف نستخدم البيانات',
+                section3Item1: 'تشغيل الخدمات الأساسية وتنفيذ الطلبات وربط العميل بمزود الخدمة المناسب.',
+                section3Item2: 'عرض مقدمي الخدمات القريبين جغرافيًا وإرسال الطلبات إلى النطاق الصحيح.',
+                section3Item3: 'تمكين التتبع المباشر، تقدير المسافة والوقت، وتحديث حالة الطلب.',
+                section3Item4: 'إرسال الإشعارات المتعلقة بالطلبات، الرسائل، العروض، وتغيرات الحالة.',
+                section3Item5: 'حماية الحسابات ومنع الاحتيال وسوء الاستخدام وتحسين جودة الخدمة.',
+                section3Item6: 'الوفاء بالالتزامات القانونية أو التنظيمية عند الحاجة.',
+                section4Title: '4. مشاركة البيانات',
+                section4Text: 'قد نشارك بعض البيانات بالحد الأدنى اللازم لتقديم الخدمة، مثل:',
+                section4Item1: 'مشاركة بيانات الطلب والموقع ووسائل التواصل اللازمة مع مزود الخدمة المرتبط بطلبك.',
+                section4Item2: 'مشاركة بيانات تقنية أو تشغيلية مع مزودي خدمات موثوقين مثل خدمات الخرائط، الإشعارات، التحليلات، والاستضافة.',
+                section4Item3: 'الاستجابة للطلبات القانونية أو التنظيمية إذا كان ذلك مطلوبًا بموجب القانون.',
+                section4Notice: 'نحن لا نبيع بياناتك الشخصية لأطراف خارجية لأغراض تسويقية مستقلة.',
+                section5Title: '5. خدمات الطرف الثالث',
+                section5Text: 'قد يعتمد التطبيق على خدمات طرف ثالث مثل Google Maps وFirebase وGoogle Sign-In وخدمات الإشعارات أو التحليلات، وتخضع بعض المعالجة لسياسات الخصوصية الخاصة بتلك الخدمات بالإضافة إلى هذه السياسة.',
+                section6Title: '6. الموقع الجغرافي',
+                section6Text: 'يستخدم التطبيق بيانات الموقع لتحديد بلد ومنطقة الخدمة، عرض المزودين القريبين، احتساب المسار، وإتاحة التتبع المباشر لبعض الخدمات. إذا عطّلت صلاحية الموقع فقد لا تعمل بعض مزايا التطبيق أو قد تعمل بشكل محدود.',
+                section7Title: '7. الاحتفاظ بالبيانات',
+                section7Text: 'نحتفظ بالبيانات ما دام ذلك ضروريًا لتقديم الخدمة، تشغيل الحساب، حفظ السجل المرتبط بالطلبات والنزاعات، متطلبات الأمان، أو الامتثال القانوني. قد تُحذف أو تُخفى بعض البيانات بعد انقضاء المدة التشغيلية أو القانونية المناسبة.',
+                section8Title: '8. الأمان',
+                section8Text: 'نتخذ إجراءات معقولة لحماية البيانات من الوصول غير المصرح به أو الفقد أو سوء الاستخدام. ومع ذلك، لا توجد وسيلة نقل أو تخزين إلكتروني تضمن أمانًا مطلقًا بنسبة 100%.',
+                section9Title: '9. حقوقك',
+                section9Item1: 'طلب تحديث أو تصحيح بياناتك الأساسية إذا كانت غير دقيقة.',
+                section9Item2: 'طلب حذف الحساب أو إيقافه، ما لم يكن الاحتفاظ ببعض البيانات مطلوبًا قانونيًا أو تشغيليًا.',
+                section9Item3: 'الاعتراض على بعض أنواع المعالجة أو طلب تقييدها متى كان ذلك ممكنًا وفق الأنظمة المعمول بها.',
+                section9Text: 'لطلبات الخصوصية أو الحذف أو الاستفسارات، يمكنك التواصل معنا عبر وسائل الاتصال المذكورة أدناه.',
+                section10Title: '10. خصوصية الأطفال',
+                section10Text: 'التطبيق غير موجه للأطفال دون السن المسموح به قانونًا في بلد الاستخدام. إذا تبيّن لنا أنه تم جمع بيانات من طفل بالمخالفة للقانون، فسنقوم باتخاذ الإجراءات المناسبة لحذفها أو تقييدها.',
+                section11Title: '11. التغييرات على هذه السياسة',
+                section11Text: 'قد نحدّث هذه السياسة من وقت لآخر. عند إجراء تحديثات جوهرية سننشر النسخة المحدثة على هذه الصفحة مع تاريخ آخر تحديث، ويُعد استمرار استخدام التطبيق بعد التحديث موافقة على النسخة المحدثة.',
+                section12Title: '12. التواصل معنا',
+                section12Text: 'إذا كان لديك أي سؤال بخصوص سياسة الخصوصية أو بياناتك الشخصية، يمكنك التواصل معنا عبر:',
+                contactEmailLabel: 'البريد الإلكتروني',
+                contactWhatsAppLabel: 'واتساب',
+                contactWebsiteLabel: 'الموقع الرسمي',
+                contactButton: 'تواصل عبر البريد',
+                backButton: 'العودة إلى الموقع الرئيسي',
+                footerCopy: '© 2026 Carzivo — جميع الحقوق محفوظة',
+                footerPolicyLink: 'سياسة الخصوصية'
+            },
+            en: {
+                dir: 'ltr',
                 pageTitle: 'Carzivo | Privacy Policy',
                 metaDescription: 'Privacy Policy for the Carzivo app and its towing, workshop, transport, and spare parts services.',
                 ogTitle: 'Carzivo | Privacy Policy',
@@ -259,11 +553,9 @@
                 backButton: 'Back to Main Website',
                 footerCopy: '© 2026 Carzivo — All rights reserved',
                 footerPolicyLink: 'Privacy Policy'
-        }
-
-        ,
-        tr: {
-            dir: 'ltr',
+            },
+            tr: {
+                dir: 'ltr',
                 pageTitle: 'Carzivo | Gizlilik Politikasi',
                 metaDescription: 'Carzivo uygulamasi ve cekici, servis, tasima ve yedek parca hizmetleri icin gizlilik politikasi.',
                 ogTitle: 'Carzivo | Gizlilik Politikasi',
@@ -322,43 +614,57 @@
                 backButton: 'Ana Siteye Don',
                 footerCopy: '© 2026 Carzivo — Tum haklari saklidir',
                 footerPolicyLink: 'Gizlilik Politikasi'
-        }
-        }
-
-        ;
+            }
+        };
 
         function applyLanguage(lang) {
-            const locale=translations[lang] || translations.ar;
-            const html=document.documentElement;
-            html.lang=lang;
-            html.dir=locale.dir;
-            document.body.classList.toggle('ltr', locale.dir==='ltr');
-            document.title=locale.pageTitle;
+            const locale = translations[lang] || translations.ar;
+            const html = document.documentElement;
+            html.lang = lang;
+            html.dir = locale.dir;
+            document.body.classList.toggle('ltr', locale.dir === 'ltr');
+            document.title = locale.pageTitle;
 
-            const metaDescription=document.querySelector('meta[name="description"]');
-            const ogTitle=document.querySelector('meta[property="og:title"]');
-            const ogDescription=document.querySelector('meta[property="og:description"]');
-            if (metaDescription) metaDescription.setAttribute('content', locale.metaDescription);
-            if (ogTitle) ogTitle.setAttribute('content', locale.ogTitle);
-            if (ogDescription) ogDescription.setAttribute('content', locale.ogDescription);
+            const metaDescription = document.querySelector('meta[name="description"]');
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+
+            if (metaDescription) {
+                metaDescription.setAttribute('content', locale.metaDescription);
+            }
+            if (ogTitle) {
+                ogTitle.setAttribute('content', locale.ogTitle);
+            }
+            if (ogDescription) {
+                ogDescription.setAttribute('content', locale.ogDescription);
+            }
 
             Object.keys(locale).forEach(function (key) {
-                    if (['dir', 'pageTitle', 'metaDescription', 'ogTitle', 'ogDescription'].includes(key)) return;
-                    const el=document.getElementById(key);
-                    if ( !el) return;
-                    el.textContent=locale[key];
-                });
+                if (["dir", "pageTitle", "metaDescription", "ogTitle", "ogDescription"].includes(key)) {
+                    return;
+                }
 
-            const switcher=document.getElementById('languageSwitcher');
-            if (switcher && switcher.value !==lang) switcher.value=lang;
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = locale[key];
+                }
+            });
+
+            const switcher = document.getElementById('languageSwitcher');
+            if (switcher && switcher.value !== lang) {
+                switcher.value = lang;
+            }
+
             localStorage.setItem('carzivo-language', lang);
         }
 
         document.getElementById('languageSwitcher').addEventListener('change', function (event) {
-                applyLanguage(event.target.value);
-            });
+            applyLanguage(event.target.value);
+        });
 
-        const storedLang=localStorage.getItem('carzivo-language');
-        const initialLang=translations[storedLang] ? storedLang : 'ar';
+        const storedLang = localStorage.getItem('carzivo-language');
+        const initialLang = translations[storedLang] ? storedLang : 'ar';
         applyLanguage(initialLang);
-        </script></body></html>
+    </script>
+</body>
+</html>
