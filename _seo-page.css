@@ -1,0 +1,90 @@
+:root {
+  --orange: #e07b2a;
+  --dark: #111827;
+  --gray: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: #f9fafb;
+  color: var(--dark);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--orange);
+}
+
+header {
+  background: var(--dark);
+  padding: 1rem 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+header img {
+  height: 42px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-inline-start: 1rem;
+  font-weight: 600;
+}
+
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 2.5rem 6% 4rem;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+  padding: .85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 6%;
+  color: var(--gray);
+  font-size: .9rem;
+}
